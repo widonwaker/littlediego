@@ -1,0 +1,531 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Altezza Bambino 0-24 Mesi</title>
+<script src="js/Chart.bundle.min.js"></script>
+<style>
+body {  
+  padding: 16px;
+}
+
+canvas {
+  border: 1px dotted red;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 90vh;
+  width: 95vw;
+}
+
+</style>
+</head>
+
+<body>
+<div class="chart-container">
+    <canvas id="chart"></canvas>
+</div>
+
+<script>
+var ctx = document.getElementById("chart").getContext('2d');
+var prova = 70;
+var scatterChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: '3 percentile',
+			fill: false,
+			backgroundColor: "rgba(255,0,0,0.2)",
+            borderColor: "rgba(255,0,0,1)",
+            borderWidth: 2,
+            data: [{
+                x: 0,
+                y: 46.5
+            }, {
+                x: 1,
+                y: 51
+            }, {
+                x: 2,
+                y: 54.5
+            }, {
+                x: 3,
+                y: 57.6
+            }, {
+                x: 4,
+                y: 60
+            }, {
+                x: 5,
+                y: 61.75
+            }, {
+                x: 6,
+                y: 63.5
+            }, {
+                x: 7,
+                y: 65
+            }, {
+                x: 8,
+                y: 66.5
+            }, {
+                x: 9,
+                y: 67.75
+            }, {
+                x: 10,
+                y: 69
+            }, {
+                x: 11,
+                y: 70.2
+            }, {
+                x: 12,
+                y: 71.4
+            }, {
+                x: 13,
+                y: 72.28
+            }, {
+                x: 14,
+                y: 73.16
+            }, {
+                x: 15,
+                y: 74.04
+            }, {
+                x: 16,
+                y: 74.92
+            }, {
+                x: 17,
+                y: 75.80
+            }, {
+                x: 18,
+                y: 76.68
+            }, {
+                x: 19,
+                y: 77.56
+            }, {
+                x: 20,
+                y: 78.44
+            }, {
+                x: 21,
+                y: 79.32
+            }, {
+                x: 22,
+                y: 80.20
+            }, {
+                x: 23,
+                y: 81.08
+            }, {
+                x: 24,
+                y: 81.96
+            }]
+        },
+		{
+            label: '15 percentile',
+			fill: false,
+			backgroundColor: "rgba(0,0,0,0.2)",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 1,
+            data: [{
+                x: 0,
+                y: 48
+            }, {
+                x: 1,
+                y: 52.5
+            }, {
+                x: 2,
+                y: 56.5
+            }, {
+                x: 3,
+                y: 59.4
+            }, {
+                x: 4,
+                y: 61.8
+            }, {
+                x: 5,
+                y: 63.65
+            }, {
+                x: 6,
+                y: 65.5
+            }, {
+                x: 7,
+                y: 67
+            }, {
+                x: 8,
+                y: 68.5
+            }, {
+                x: 9,
+                y: 69.75
+            }, {
+                x: 10,
+                y: 71
+            }, {
+                x: 11,
+                y: 72.2
+            }, {
+                x: 12,
+                y: 73.4
+            }, {
+                x: 13,
+                y: 74.32
+            }, {
+                x: 14,
+                y: 75.24
+            }, {
+                x: 15,
+                y: 76.16
+            }, {
+                x: 16,
+                y: 77.08
+            }, {
+                x: 17,
+                y: 78
+            }, {
+                x: 18,
+                y: 78.92
+            }, {
+                x: 19,
+                y: 79.84
+            }, {
+                x: 20,
+                y: 80.76
+            }, {
+                x: 21,
+                y: 81.68
+            }, {
+                x: 22,
+                y: 82.6
+            }, {
+                x: 23,
+                y: 83.52
+            }, {
+                x: 24,
+                y: 84.44
+            }]
+        },
+		{
+            label: '50 percentile',
+			fill: false,
+			backgroundColor: "rgba(160,160,160,0.2)",
+            borderColor: "rgba(160,160,160,1)",
+            borderWidth: 1,
+			borderDash: [20, 30],
+            data: [{
+                x: 0,
+                y: 50
+            }, {
+                x: 1,
+                y: 54.5
+            }, {
+                x: 2,
+                y: 58.5
+            }, {
+                x: 3,
+                y: 61.5
+            }, {
+                x: 4,
+                y: 64
+            }, {
+                x: 5,
+                y: 65.75
+            }, {
+                x: 6,
+                y: 67.5
+            }, {
+                x: 7,
+                y: 69
+            }, {
+                x: 8,
+                y: 70.5
+            }, {
+                x: 9,
+                y: 71.95
+            }, {
+                x: 10,
+                y: 73.4
+            }, {
+                x: 11,
+                y: 74.55
+            }, {
+                x: 12,
+                y: 75.7
+            }, {
+                x: 13,
+                y: 76.73
+            }, {
+                x: 14,
+                y: 77.76
+            }, {
+                x: 15,
+                y: 78.79
+            }, {
+                x: 16,
+                y: 79.82
+            }, {
+                x: 17,
+                y: 80.85
+            }, {
+                x: 18,
+                y: 81.88
+            }, {
+                x: 19,
+                y: 82.91
+            }, {
+                x: 20,
+                y: 83.94
+            }, {
+                x: 21,
+                y: 84.97
+            }, {
+                x: 22,
+                y: 86.00
+            }, {
+                x: 23,
+                y: 87.03
+            }, {
+                x: 24,
+                y: 88.06
+            }]
+        },
+		{
+            label: '85 percentile',
+			fill: false,
+			backgroundColor: "rgba(0,0,0,0.2)",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 1,
+            data: [{
+                x: 0,
+                y: 52
+            }, {
+                x: 1,
+                y: 56.5
+            }, {
+                x: 2,
+                y: 60.5
+            }, {
+                x: 3,
+                y: 63.5
+            }, {
+                x: 4,
+                y: 66
+            }, {
+                x: 5,
+                y: 67.9
+            }, {
+                x: 6,
+                y: 69.8
+            }, {
+                x: 7,
+                y: 71.4
+            }, {
+                x: 8,
+                y: 73
+            }, {
+                x: 9,
+                y: 74.4
+            }, {
+                x: 10,
+                y: 75.8
+            }, {
+                x: 11,
+                y: 77
+            }, {
+                x: 12,
+                y: 78.2
+            }, {
+                x: 13,
+                y: 79.27
+            }, {
+                x: 14,
+                y: 80.34
+            }, {
+                x: 15,
+                y: 81.41
+            }, {
+                x: 16,
+                y: 82.48
+            }, {
+                x: 17,
+                y: 83.55
+            }, {
+                x: 18,
+                y: 84.62
+            }, {
+                x: 19,
+                y: 85.69
+            }, {
+                x: 20,
+                y: 86.76
+            }, {
+                x: 21,
+                y: 87.83
+            }, {
+                x: 22,
+                y: 88.9
+            }, {
+                x: 23,
+                y: 89.97
+            }, {
+                x: 24,
+                y: 91.04
+            }]
+        },
+		{
+            label: '97 percentile',
+			fill: false,
+			backgroundColor: "rgba(255,0,0,0.2)",
+            borderColor: "rgba(255,0,0,1)",
+            borderWidth: 2,
+            data: [{
+                x: 0,
+                y: 53.5
+            }, {
+                x: 1,
+                y: 58.5
+            }, {
+                x: 2,
+                y: 62.5
+            }, {
+                x: 3,
+                y: 65.4
+            }, {
+                x: 4,
+                y: 67.8
+            }, {
+                x: 5,
+                y: 69.65
+            }, {
+                x: 6,
+                y: 71.5
+            }, {
+                x: 7,
+                y: 73.15
+            }, {
+                x: 8,
+                y: 74.8
+            }, {
+                x: 9,
+                y: 76.25
+            }, {
+                x: 10,
+                y: 77.7
+            }, {
+                x: 11,
+                y: 79
+            }, {
+                x: 12,
+                y: 80.3
+            }, {
+                x: 13,
+                y: 81.4
+            }, {
+                x: 14,
+                y: 82.5
+            }, {
+                x: 15,
+                y: 83.6
+            }, {
+                x: 16,
+                y: 84.7
+            }, {
+                x: 17,
+                y: 85.8
+            }, {
+                x: 18,
+                y: 86.9
+            }, {
+                x: 19,
+                y: 88
+            }, {
+                x: 20,
+                y: 89.1
+            }, {
+                x: 21,
+                y: 90.2
+            }, {
+                x: 22,
+                y: 91.3
+            }, {
+                x: 23,
+                y: 92.4
+            }, {
+                x: 24,
+                y: 93.50
+            }]
+        },
+		{
+            label: 'Il mio bimbo',
+			fill: false,
+			radius: 5,
+			backgroundColor: "rgba(51,153,255,0.2)",
+            borderColor: "rgba(51,153,255,1)",
+            borderWidth: 7,
+            data: [{
+                x: 8,
+                y: 67.6
+            }, {
+                x: 9,
+                y: 68.5
+            }, {
+                x: 10,
+                y: prova
+            }, {
+                x: 11,
+                y: 73.5
+            }]
+        }]
+    },
+	
+    options: {
+		title: {
+            display: true,
+            text: 'Altezza Bambino 0-24 Mesi'
+        },
+		elements: {
+             point: {
+                radius: 0,
+                backgroundColor: 'rgba(200,250,0)'
+             }
+        },
+		legend: {
+            display: true,
+            labels: {	
+			    boxWidth: 2,
+                fontColor: 'rgb(0, 0, 0)'
+            }
+        },
+		stacked: false,
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom',
+			    ticks: {
+                    min: 0,
+                    max: 24,
+                    stepSize: 1
+                },
+				scaleLabel: {
+                   display: true,
+                   labelString: 'età (mesi)'
+                }
+            }],
+			yAxes: [{
+                type: 'linear',
+				position: 'left',
+                ticks: {
+                    stepSize: 5,
+                    callback: function(value, index, values) {
+                        return value + 'cm';
+                    }
+                }
+            }]
+        }
+    }
+});
+
+if (prova > 60) {
+//
+}
+
+    </script>
+
+
+</body>
+</html>

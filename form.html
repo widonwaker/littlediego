@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Form</title>
+  <link rel="stylesheet" href="themes/dieghino.min.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="jqm/jquery.mobile.structure-1.4.5.min.css" />
+  <!--<link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.min.css">-->
+  <script src="jqm/jquery-1.10.2.min.js"></script>
+  <script src="jqm/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="" data-theme="a">
+<div data-role="content" id="">
+ <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
+Peso: <input type="text" name="peso">
+Età (mesi): <input type="text" name="eta">
+<input type="submit" value="Submit">
+</form> 
+
+<a onClick="pulisci();">Pulisci tutto</a>
+</div>
+</div>
+
+<script language="JavaScript" type="text/JavaScript">
+
+function validateForm() {
+	if (localStorage.getItem("peso")===null) localStorage.setItem("peso", '');
+	var oldpeso = localStorage.getItem("peso");
+    var peso = document.forms["myForm"]["peso"].value;
+    var eta = document.forms["myForm"]["eta"].value;
+	localStorage.setItem("peso", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
+	//alert(localStorage.getItem("peso"));
+	redirecta();
+} 
+
+function redirecta() {
+	location.href="pesoM.html";
+}
+
+function pulisci() {
+	localStorage.removeItem("peso");
+	location.href="form.html";
+}
+</script>
+</body>
+</html>
