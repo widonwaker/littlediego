@@ -11,13 +11,14 @@
 <script src="js/Chart.bundle.min.js"></script>
 <style>
 canvas {
-  border: 5px solid pink;
+  border: 3px solid pink;
 }
 
 .chart-container {
   position: relative;
-  height: 80vh;
-  width: 98vw;
+  margin: auto;
+  height: 90vh;
+  width: 95vw;
 }
 
 .trias {
@@ -504,7 +505,7 @@ var scatterChart = new Chart(ctx, {
 		stacked: false,
         scales: {
             xAxes: [{
-				display: false,
+				
                 type: 'linear',
                 position: 'bottom',
 			    ticks: {
@@ -513,18 +514,18 @@ var scatterChart = new Chart(ctx, {
                     stepSize: 1
                 },
 				scaleLabel: {
-                   display: false,
+                   
                    labelString: 'età (mesi)'
                 }
             }],
 			yAxes: [{
-				display: false,
+				
                 type: 'linear',
 				position: 'left',
                 ticks: {
                     stepSize: 2,
                     callback: function(value, index, values) {
-                        //return value + 'Kg';
+                        return value + 'Kg';
                     }
                 }
             }]
