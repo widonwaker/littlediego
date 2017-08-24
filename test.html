@@ -13,15 +13,33 @@
 .chart-container {
   position: relative;
   margin: auto;
-  height: 80vh;
+  height: 50vh;
   width: 98vw;
+}
+
+.trias {
+	width: 40%;
+	display: block;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 5px;
 }
 </style>
 </head>
 
 <body>
+
+<div data-role="page" id="" data-theme="a">
+
+<div data-role="header" data-position="inline">
+			<img src="img/header_logo.png" class="trias"></img>
+		</div>
+        
 <div class="chart-container">
 <canvas id="peso" ></canvas>
+</div>
+
 </div>
     <script>
 	var cty = document.getElementById("peso").getContext('2d');
