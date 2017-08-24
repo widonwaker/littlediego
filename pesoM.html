@@ -41,7 +41,7 @@ canvas {
 var ctx = document.getElementById("chart").getContext('2d');
 var prova = 70;
 var valori ="[";
-valori += localStorage.getItem("peso");//'{"x":"2","y":"4"},';
+valori += localStorage.getItem("pesoM");
 valori += ']';
 var obj = valori.replace(",]","]");
 obj = JSON.parse(obj);
