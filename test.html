@@ -5,11 +5,20 @@
 <title>Documento senza titolo</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+<style>
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
+}
+</style>
 </head>
 
 <body>
-
-<canvas id="peso" style="width:100%"></canvas>
+<div class="chart-container">
+<canvas id="peso" ></canvas>
+</div>
     <script>
 	var cty = document.getElementById("peso").getContext('2d');
 	var scatterChart2 = new Chart(cty, {
@@ -455,6 +464,7 @@
     },
 	
     options: {
+		maintainAspectRatio: false,
 		title: {
             display: true,
             text: 'Altezza Bambina 0-24 Mesi'
