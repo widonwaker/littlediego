@@ -9,45 +9,480 @@
 
 <body>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="peso" width="400" height="400"></canvas>
 <script>
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
+var ctx = document.getElementById("peso").getContext('2d');
+
+var scatterChart = new Chart(ctx, {
+    type: 'scatter',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+            label: '3 percentile',
+			fill: false,
+			backgroundColor: "rgba(255,0,0,0.2)",
+            borderColor: "rgba(255,0,0,1)",
+            borderWidth: 3,
+            data: [{
+                x: 0,
+                y: 2.4
+            }, {
+                x: 1,
+                y: 3.3
+            }, {
+                x: 2,
+                y: 4
+            }, {
+                x: 3,
+                y: 4.6
+            }, {
+                x: 4,
+                y: 5.1
+            }, {
+                x: 5,
+                y: 5.45
+            }, {
+                x: 6,
+                y: 5.8
+            }, {
+                x: 7,
+                y: 6.08
+            }, {
+                x: 8,
+                y: 6.35
+            }, {
+                x: 9,
+                y: 6.58
+            }, {
+                x: 10,
+                y: 6.8
+            }, {
+                x: 11,
+                y: 6.98
+            }, {
+                x: 12,
+                y: 7.15
+            }, {
+                x: 13,
+                y: 7.32
+            }, {
+                x: 14,
+                y: 7.48
+            }, {
+                x: 15,
+                y: 7.65
+            }, {
+                x: 16,
+                y: 7.82
+            }, {
+                x: 17,
+                y: 7.99
+            }, {
+                x: 18,
+                y: 8.15
+            }, {
+                x: 19,
+                y: 8.32
+            }, {
+                x: 20,
+                y: 8.49
+            }, {
+                x: 21,
+                y: 8.65
+            }, {
+                x: 22,
+                y: 8.82
+            }, {
+                x: 23,
+                y: 8.99
+            }, {
+                x: 24,
+                y: 9.15
+            }]
+        },
+		{
+            label: '15 percentile',
+			fill: false,
+			backgroundColor: "rgba(0,0,0,0.2)",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 1,
+            data: [{
+                x: 0,
+                y: 2.8
+            }, {
+                x: 1,
+                y: 3.7
+            }, {
+                x: 2,
+                y: 4.5
+            }, {
+                x: 3,
+                y: 5.1
+            }, {
+                x: 4,
+                y: 5.65
+            }, {
+                x: 5,
+                y: 6.03
+            }, {
+                x: 6,
+                y: 6.4
+            }, {
+                x: 7,
+                y: 6.70
+            }, {
+                x: 8,
+                y: 7
+            }, {
+                x: 9,
+                y: 7.25
+            }, {
+                x: 10,
+                y: 7.5
+            }, {
+                x: 11,
+                y: 7.7
+            }, {
+                x: 12,
+                y: 7.9
+            }, {
+                x: 13,
+                y: 8.08
+            }, {
+                x: 14,
+                y: 8.27
+            }, {
+                x: 15,
+                y: 8.45
+            }, {
+                x: 16,
+                y: 8.63
+            }, {
+                x: 17,
+                y: 8.82
+            }, {
+                x: 18,
+                y: 9
+            }, {
+                x: 19,
+                y: 9.18
+            }, {
+                x: 20,
+                y: 9.36
+            }, {
+                x: 21,
+                y: 9.55
+            }, {
+                x: 22,
+                y: 9.73
+            }, {
+                x: 23,
+                y: 9.91
+            }, {
+                x: 24,
+                y: 10.1
+            }]
+        },
+		{
+            label: '50 percentile',
+			fill: false,
+			backgroundColor: "rgba(160,160,160,0.2)",
+            borderColor: "rgba(160,160,160,1)",
+            borderWidth: 1,
+			borderDash: [20, 30],
+            data: [{
+                x: 0,
+                y: 3.2
+            }, {
+                x: 1,
+                y: 4.2
+            }, {
+                x: 2,
+                y: 5.2
+            }, {
+                x: 3,
+                y: 5.8
+            }, {
+                x: 4,
+                y: 6.4
+            }, {
+                x: 5,
+                y: 6.85
+            }, {
+                x: 6,
+                y: 7.3
+            }, {
+                x: 7,
+                y: 7.63
+            }, {
+                x: 8,
+                y: 7.95
+            }, {
+                x: 9,
+                y: 8.23
+            }, {
+                x: 10,
+                y: 8.5
+            }, {
+                x: 11,
+                y: 8.73
+            }, {
+                x: 12,
+                y: 8.95
+            }, {
+                x: 13,
+                y: 9.16
+            }, {
+                x: 14,
+                y: 9.37
+            }, {
+                x: 15,
+                y: 9.59
+            }, {
+                x: 16,
+                y: 9.8
+            }, {
+                x: 17,
+                y: 10.01
+            }, {
+                x: 18,
+                y: 10.22
+            }, {
+                x: 19,
+                y: 10.43
+            }, {
+                x: 20,
+                y: 10.65
+            }, {
+                x: 21,
+                y: 10.86
+            }, {
+                x: 22,
+                y: 11.08
+            }, {
+                x: 23,
+                y: 11.28
+            }, {
+                x: 24,
+                y: 11.49
+            }]
+        },
+		{
+            label: '85 percentile',
+			fill: false,
+			backgroundColor: "rgba(0,0,0,0.2)",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 1,
+            data: [{
+                x: 0,
+                y: 3.70
+            }, {
+                x: 1,
+                y: 4.9
+            }, {
+                x: 2,
+                y: 5.9
+            }, {
+                x: 3,
+                y: 6.65
+            }, {
+                x: 4,
+                y: 7.3
+            }, {
+                x: 5,
+                y: 7.8
+            }, {
+                x: 6,
+                y: 8.3
+            }, {
+                x: 7,
+                y: 8.65
+            }, {
+                x: 8,
+                y: 9
+            }, {
+                x: 9,
+                y: 9.33
+            }, {
+                x: 10,
+                y: 9.65
+            }, {
+                x: 11,
+                y: 9.93
+            }, {
+                x: 12,
+                y: 10.2
+            }, {
+                x: 13,
+                y: 10.44
+            }, {
+                x: 14,
+                y: 10.68
+            }, {
+                x: 15,
+                y: 10.93
+            }, {
+                x: 16,
+                y: 11.17
+            }, {
+                x: 17,
+                y: 11.41
+            }, {
+                x: 18,
+                y: 11.65
+            }, {
+                x: 19,
+                y: 11.89
+            }, {
+                x: 20,
+                y: 12.14
+            }, {
+                x: 21,
+                y: 12.38
+            }, {
+                x: 22,
+                y: 12.62
+            }, {
+                x: 23,
+                y: 12.86
+            }, {
+                x: 24,
+                y: 13.1
+            }]
+        },
+		{
+            label: '97 percentile',
+			fill: false,
+			backgroundColor: "rgba(255,0,0,0.2)",
+            borderColor: "rgba(255,0,0,1)",
+            borderWidth: 3,
+            data: [{
+                x: 0,
+                y: 4.2
+            }, {
+                x: 1,
+                y: 5.45
+            }, {
+                x: 2,
+                y: 6.6
+            }, {
+                x: 3,
+                y: 7.4
+            }, {
+                x: 4,
+                y: 8.1
+            }, {
+                x: 5,
+                y: 8.65
+            }, {
+                x: 6,
+                y: 9.2
+            }, {
+                x: 7,
+                y: 9.6
+            }, {
+                x: 8,
+                y: 10
+            }, {
+                x: 9,
+                y: 10.35
+            }, {
+                x: 10,
+                y: 10.7
+            }, {
+                x: 11,
+                y: 11.03
+            }, {
+                x: 12,
+                y: 11.35
+            }, {
+                x: 13,
+                y: 11.62
+            }, {
+                x: 14,
+                y: 11.89
+            }, {
+                x: 15,
+                y: 12.16
+            }, {
+                x: 16,
+                y: 12.43
+            }, {
+                x: 17,
+                y: 12.71
+            }, {
+                x: 18,
+                y: 12.98
+            }, {
+                x: 19,
+                y: 13.25
+            }, {
+                x: 20,
+                y: 13.52
+            }, {
+                x: 21,
+                y: 13.79
+            }, {
+                x: 22,
+                y: 14.06
+            }, {
+                x: 23,
+                y: 14.33
+            }, {
+                x: 24,
+                y: 14.6
+            }]
         }]
     },
+	
     options: {
+		title: {
+            display: true,
+            text: 'Peso Bambina 0-24 Mesi'
+        },
+		elements: {
+             point: {
+                radius: 0,
+                backgroundColor: 'rgba(200,250,0)'
+             }
+        },
+		legend: {
+            display: true,
+            labels: {	
+			    boxWidth: 2,
+                fontColor: 'rgb(0, 0, 0)'
+            }
+        },
+		stacked: false,
         scales: {
-            yAxes: [{
+            xAxes: [{
+				display: false,
+                type: 'linear',
+                position: 'bottom',
+			    ticks: {
+                    min: 0,
+                    max: 24,
+                    stepSize: 1
+                },
+				scaleLabel: {
+                   display: false,
+                   labelString: 'età (mesi)'
+                }
+            }],
+			yAxes: [{
+				display: false,
+                type: 'linear',
+				position: 'left',
                 ticks: {
-                    beginAtZero:true
+                    stepSize: 2,
+                    callback: function(value, index, values) {
+                        //return value + 'Kg';
+                    }
                 }
             }]
         }
     }
 });
-</script>
+
+    </script>
 </body>
 </html>
