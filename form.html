@@ -26,7 +26,7 @@
 <body>
 <div data-role="page" id="" data-theme="a">
 
-<div data-role="header" data-position="inline">
+<div data-role="header" data-position="fixed">
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
 
@@ -59,7 +59,6 @@
 
 </form> 
 
-<a onClick="pulisci();">Pulisci tutto</a>
 </div>
 
 <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-glyphish">
@@ -96,7 +95,7 @@ function validateForm() {
 		if (localStorage.getItem("pesoF")===null) localStorage.setItem("pesoF", '');
 		if (localStorage.getItem("altezzaF")===null) localStorage.setItem("altezzaF", '');
 	    var oldpeso = localStorage.getItem("pesoF");
-        var oldaltezza = localStorage.getItem("pesoF");
+        var oldaltezza = localStorage.getItem("altezzaF");
         var peso = document.forms["myForm"]["peso"].value;
 		var peso = peso.replace(",",".");
         var eta = document.forms["myForm"]["eta"].value;
