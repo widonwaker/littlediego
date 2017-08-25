@@ -22,6 +22,7 @@ canvas {
   margin: auto;
   height: 50vh;
   width: 99vw;
+  margin-bottom: 5%;
 }
 
 .trias {
@@ -40,7 +41,7 @@ canvas {
 
 <div data-role="page" id="femmina" data-theme="a">
 
-<div data-role="header" data-position="inline" data-position="fixed">
+<div data-role="header" data-position="fixed">
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
 
@@ -54,8 +55,8 @@ canvas {
 <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-glyphish">
 		<div data-role="navbar" class="nav-glyphish">
 			<ul>
-				<li><a href="#" id="hometab" data-icon="home">Home</a></li>
-                <li><a href="#" id="tabB" data-icon="user" class="ui-btn-active">Profili</a></li>
+				<li><a href="#" onclick="location.href='index.html'" id="hometab" data-icon="home">Home</a></li>
+                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" class="ui-btn-active">Profili</a></li>
 				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" >Nuova Misura</a></li>
 			</ul>
 		</div><!-- /navbar -->
@@ -66,6 +67,18 @@ canvas {
 <script>
 window.onload = function() {
 var ctx = document.getElementById("peso").getContext('2d');
+
+var peso ="[";
+peso += localStorage.getItem("pesoF");
+peso += ']';
+var peso = peso.replace(",]","]");
+peso = JSON.parse(peso);
+
+var altezza ="[";
+altezza += localStorage.getItem("altezzaF");
+altezza += ']';
+var altezza = altezza.replace(",]","]");
+altezza = JSON.parse(altezza);
 
 var scatterChart = new Chart(ctx, {
     type: 'scatter',
@@ -485,6 +498,15 @@ var scatterChart = new Chart(ctx, {
                 x: 24,
                 y: 14.6
             }]
+        },
+		{
+            label: 'La mia bimba',
+			fill: false,
+			radius: 2,
+			backgroundColor: "rgba(255,153,204,0.2)",
+            borderColor: "rgba(255,153,204,1)",
+            borderWidth: 4,
+            data: peso
         }]
     },
 	
@@ -517,7 +539,7 @@ var scatterChart = new Chart(ctx, {
 			    ticks: {
                     min: 0,
                     max: 24,
-                    stepSize: 1
+                    stepSize: 2
                 },
 				scaleLabel: {
                    
@@ -964,23 +986,11 @@ var scatterChart = new Chart(ctx, {
 		{
             label: 'La mia bimba',
 			fill: false,
-			radius: 5,
+			radius: 2,
 			backgroundColor: "rgba(255,153,204,0.2)",
             borderColor: "rgba(255,153,204,1)",
-            borderWidth: 7,
-            data: [{
-                x: 8,
-                y: 67.6
-            }, {
-                x: 9,
-                y: 68.5
-            }, {
-                x: 10,
-                y: 70
-            }, {
-                x: 11,
-                y: 73.5
-            }]
+            borderWidth: 4,
+            data: altezza
         }]
     },
 	
@@ -1012,11 +1022,11 @@ var scatterChart = new Chart(ctx, {
 			    ticks: {
                     min: 0,
                     max: 24,
-                    stepSize: 1
+                    stepSize: 2
                 },
 				scaleLabel: {
                    display: true,
-                   labelString: 'età (mesi)'
+                   //labelString: 'età (mesi)'
                 }
             }],
 			yAxes: [{
