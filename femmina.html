@@ -20,7 +20,7 @@ canvas {
 .chart-container {
   position: relative;
   margin: auto;
-  height: 90vh;
+  height: 50vh;
   width: 99vw;
 }
 
@@ -40,7 +40,7 @@ canvas {
 
 <div data-role="page" id="femmina" data-theme="a">
 
-<div data-role="header" data-position="inline">
+<div data-role="header" data-position="inline" data-position="fixed">
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
 
@@ -538,10 +538,9 @@ var scatterChart = new Chart(ctx, {
         }
     }
 });
-};
-    </script>
-    
-    <script>
+
+
+
 	var cty = document.getElementById("altezza").getContext('2d');
 	var scatterChart2 = new Chart(cty, {
     type: 'scatter',
@@ -987,6 +986,7 @@ var scatterChart = new Chart(ctx, {
 	
     options: {
 		responsive: true,
+        maintainAspectRatio: false,
 		title: {
             display: true,
             text: 'Altezza Bambina 0-24 Mesi'
@@ -1033,7 +1033,7 @@ var scatterChart = new Chart(ctx, {
     }
 });
 
-
+};
 	</script>
 
 
