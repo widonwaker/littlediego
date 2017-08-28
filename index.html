@@ -104,12 +104,9 @@ window.mySwipe = new Swipe(element, {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     navigator.globalization.getPreferredLanguage(
-    function (language) {
-		if (language.value == "it-IT") windows.localStorage.setItem("deflang", "ita") else 
-	windows.localStorage.setItem("deflang", "other");
-	},
+        function (language) {alert('language: ' + language.value + '\n');},
         function () {alert('Error getting language\n');}
-);
+    );
 }
 
    var head= document.getElementsByTagName('head')[0];
