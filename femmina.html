@@ -543,7 +543,7 @@ var scatterChart = new Chart(ctx, {
                 },
 				scaleLabel: {
                    
-                   labelString: 'età (mesi)'
+                   labelString: 'mesi'
                 }
             }],
 			yAxes: [{
@@ -551,10 +551,11 @@ var scatterChart = new Chart(ctx, {
                 type: 'linear',
 				position: 'left',
                 ticks: {
-                    stepSize: 2,
-                    callback: function(value, index, values) {
-                        return value + 'Kg';
-                    }
+                    stepSize: 2
+                },
+				scaleLabel: {
+                   display: true,
+                   labelString: 'Kg'
                 }
             }]
         }
@@ -1026,17 +1027,18 @@ var scatterChart = new Chart(ctx, {
                 },
 				scaleLabel: {
                    display: true,
-                   //labelString: 'età (mesi)'
+                   labelString: 'mesi'
                 }
             }],
 			yAxes: [{
                 type: 'linear',
 				position: 'left',
                 ticks: {
-                    stepSize: 5,
-                    callback: function(value, index, values) {
-                        return value + 'cm';
-                    }
+                    stepSize: 5
+                },
+				scaleLabel: {
+                   display: true,
+                   labelString: 'cm'
                 }
             }]
         }
@@ -1046,6 +1048,12 @@ var scatterChart = new Chart(ctx, {
 };
 	</script>
 
-
+<script>
+					var head= document.getElementsByTagName('head')[0];
+                    var script= document.createElement('script');
+                    script.type= 'text/javascript';
+                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+                    head.appendChild(script);	
+</script>
 </body>
 </html>

@@ -1052,6 +1052,12 @@ var scatterChart1 = new Chart(cty, {
 };
 	</script>
 
-
+<script>
+					var head= document.getElementsByTagName('head')[0];
+                    var script= document.createElement('script');
+                    script.type= 'text/javascript';
+                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+                    head.appendChild(script);	
+</script>
 </body>
 </html>

@@ -70,8 +70,8 @@
 		<div data-role="navbar" class="nav-glyphish">
 			<ul>
 				<li><a href="#" id="hometab" data-icon="home" class="ui-btn-active">Home</a></li>
-                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" >Profili</a></li>
-				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus">Nuova Misura</a></li>
+                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" >Profiles</a></li>
+				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus">Add New</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer --> 
@@ -109,10 +109,13 @@ function onDeviceReady() {
         function (language) { 
 		    if (language.value == "it-IT") {
 				    window.localStorage.setItem("deflang","ita");
-					alert(window.localStorage.getItem("deflang"));
+					var head= document.getElementsByTagName('head')[0];
+                    var script= document.createElement('script');
+                    script.type= 'text/javascript';
+                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+                    head.appendChild(script);	
 				} else {
 					window.localStorage.setItem("deflang","eng");
-					alert("non riconosciuto");
 				} 
 			},
         function () {window.localStorage.setItem("deflang","eng");}
@@ -121,12 +124,6 @@ function onDeviceReady() {
 }
 
 
-   
-   var head= document.getElementsByTagName('head')[0];
-   var script= document.createElement('script');
-   script.type= 'text/javascript';
-   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-   head.appendChild(script);	
 </script>
 </body>
 </html>
