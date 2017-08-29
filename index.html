@@ -104,7 +104,7 @@ window.mySwipe = new Swipe(element, {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     navigator.globalization.getPreferredLanguage(
-        function (language) {if (language.value == 'it-IT') {window.localStorage.setItem("deflang","ita");} },
+        function (language) {alert(language.value);},
         function () {window.localStorage.setItem("deflang","eng");}
     );
 }
