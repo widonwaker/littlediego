@@ -104,16 +104,18 @@ window.mySwipe = new Swipe(element, {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     navigator.globalization.getPreferredLanguage(
-        function (language) {alert(language.value);},
+        function (language) {if (language.value == 'it-IT') {window.localStorage.setItem("deflang","ita");} },
         function () {window.localStorage.setItem("deflang","eng");}
     );
-}
-alert(window.localStorage.getItem("deflang"));
+	
+	alert(window.localStorage.getItem("deflang"));
    var head= document.getElementsByTagName('head')[0];
    var script= document.createElement('script');
    script.type= 'text/javascript';
    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
    head.appendChild(script);
+}
+
 </script>
 </body>
 </html>
