@@ -34,7 +34,7 @@
  <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
  <div class="ui-field-contain">
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-    <legend>Sesso:</legend>
+    <legend id="sexleg">Sesso:</legend>
         <input name="sesso" id="radio-choice-c" value="maschio" checked="checked" type="radio">
         <label for="radio-choice-c">M</label>
         <input name="sesso" id="radio-choice-d" value="femmina" type="radio">
@@ -42,19 +42,19 @@
 </fieldset>
 </div>
 <div class="ui-field-contain">
-<label for="eta">Età (mesi):</label> 
+<label for="eta" id="etaleg">Età (mesi):</label> 
 <input type="text" name="eta" maxlength="2">
 </div>
 <div class="ui-field-contain">
-<label for="peso">Peso:</label> 
+<label for="peso" id="pesoleg">Peso:</label> 
 <input type="text" name="peso" maxlength="5">
 </div>
 <div class="ui-field-contain">
-<label for="altezza">Altezza:</label> 
+<label for="altezza" id="altleg">Altezza:</label> 
 <input type="text" name="altezza" maxlength="5">
 </div>
 <div class="ui-field-contain">
-<input type="submit" value="Calcola">
+<input type="submit" value="Calcola" id="calcoform">
 </div>
 
 </form> 
@@ -108,6 +108,14 @@ function validateForm() {
 	}
 } 
 
+</script>
+
+<script>
+					var head= document.getElementsByTagName('head')[0];
+                    var script= document.createElement('script');
+                    script.type= 'text/javascript';
+                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+                    head.appendChild(script);	
 </script>
 </body>
 </html>

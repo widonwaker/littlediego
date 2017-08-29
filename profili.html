@@ -30,8 +30,12 @@
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
         
-  <div data-role="panel" id="mypanel" data-display="overlay">
-    <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
+ 
+   
+  
+
+<div data-role="content" id="">
+   <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
  <div class="ui-field-contain">
  <legend id="unitmisura">Unit of measure:</legend>
 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
@@ -42,14 +46,21 @@
         <label for="radio-choice-d">inch / lb</label>
 </fieldset>
 
-<input type="submit" value="Salva" id="saveopt">
+<input type="submit" value="Save" id="saveopt">
 </div>
 
 </form> 
-  </div><!-- /panel -->
 
-<div data-role="content" id="">
-  <button id="opzioni" onclick='$( "#mypanel" ).panel( "open" );'>Options</button>
+<div data-role="collapsible">
+  <h1 id="h1male">Male</h1>
+  <p><a href="" onClick="resetM();" id="resetM">Clear all data</a><br><br><a href="" onClick="location.href='maschio.html'" id="linktograph">Access the graphs</a></p>
+</div>
+
+<div data-role="collapsible">
+  <h1 id="h1female">Female</h1>
+  <p><a href="" onClick="resetF();" id="resetF">Clear all data</a><br><br><a href="" onClick="location.href='femmina.html'" id="linktograph">Access the graphs</a></p>
+</div>
+
 </div>
 
 <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-glyphish">
@@ -74,6 +85,36 @@ function validateForm() {
 		//
 	}
 } 
+
+function resetMcallback() {
+   	localStorage.removeItem("pesoM");
+	localStorage.removeItem("altezzaM");
+	location.href="profili.html";
+}	
+
+function resetFcallback() {
+	localStorage.removeItem("pesoF");
+	localStorage.removeItem("altezzaF");
+	location.href="profili.html";
+}	
+
+function resetM() {
+navigator.notification.alert(
+    ClearMessageM,  // message
+    resetMcallback,         // callback
+    completed,            // title
+    'Ok'                  // buttonName
+);
+}
+
+function resetF() {
+navigator.notification.alert(
+    ClearMessageF,  // message
+    resetFcallback,         // callback
+    completed,            // title
+    'Ok'                  // buttonName
+);
+}
 
 
 					var head= document.getElementsByTagName('head')[0];
