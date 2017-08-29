@@ -82,12 +82,7 @@
 <script>
 //$( document ).on( "mobileinit", function() {
 	$(document).ready(function() {
-			alert(window.localStorage.getItem("deflang"));
-   var head= document.getElementsByTagName('head')[0];
-   var script= document.createElement('script');
-   script.type= 'text/javascript';
-   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-   head.appendChild(script);	
+
 		
 			var element = document.getElementById('mySwipe'),
     prevBtn = document.getElementById('prev'),
@@ -111,13 +106,27 @@ window.mySwipe = new Swipe(element, {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     navigator.globalization.getPreferredLanguage(
-        function (language) {window.localStorage.setItem("deflang",language.value); if (language.value == "it-IT") {window.localStorage.setItem("deflang","ita");} },
+        function (language) { 
+		    if (language.value == "it-IT") {
+				    window.localStorage.setItem("deflang","ita");
+					alert(language.value);
+				} else {
+					window.localStorage.setItem("deflang","eng");
+					alert("non riconosciuto");
+				} 
+			},
         function () {window.localStorage.setItem("deflang","eng");}
     );
+	
 }
 
 
-
+   alert(window.localStorage.getItem("deflang"));
+   var head= document.getElementsByTagName('head')[0];
+   var script= document.createElement('script');
+   script.type= 'text/javascript';
+   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+   head.appendChild(script);	
 </script>
 </body>
 </html>
