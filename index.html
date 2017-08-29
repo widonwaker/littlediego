@@ -109,7 +109,7 @@ function onDeviceReady() {
         function (language) { 
 		    if (language.value == "it-IT") {
 				    window.localStorage.setItem("deflang","ita");
-					alert(language.value);
+					alert(window.localStorage.getItem("deflang"));
 				} else {
 					window.localStorage.setItem("deflang","eng");
 					alert("non riconosciuto");
@@ -121,7 +121,7 @@ function onDeviceReady() {
 }
 
 
-   alert(window.localStorage.getItem("deflang"));
+   
    var head= document.getElementsByTagName('head')[0];
    var script= document.createElement('script');
    script.type= 'text/javascript';
