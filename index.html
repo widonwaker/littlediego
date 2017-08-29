@@ -82,6 +82,13 @@
 <script>
 //$( document ).on( "mobileinit", function() {
 	$(document).ready(function() {
+			alert(window.localStorage.getItem("deflang"));
+   var head= document.getElementsByTagName('head')[0];
+   var script= document.createElement('script');
+   script.type= 'text/javascript';
+   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+   head.appendChild(script);	
+		
 			var element = document.getElementById('mySwipe'),
     prevBtn = document.getElementById('prev'),
     nextBtn = document.getElementById('next');
@@ -109,14 +116,7 @@ function onDeviceReady() {
     );
 }
 
-window.onload() {
-		alert(window.localStorage.getItem("deflang"));
-   var head= document.getElementsByTagName('head')[0];
-   var script= document.createElement('script');
-   script.type= 'text/javascript';
-   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-   head.appendChild(script);
-}
+
 
 </script>
 </body>
