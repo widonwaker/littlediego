@@ -124,13 +124,13 @@ navigator.notification.alert(
 </script>
 
 <script>
-window.onload() {
+$(document).on("pagecontainerload",function(event,data){
 					var head= document.getElementsByTagName('head')[0];
                     var script= document.createElement('script');
                     script.type= 'text/javascript';
                     script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
                     head.appendChild(script);	
-}
+});
 </script>
 </body>
 </html>
