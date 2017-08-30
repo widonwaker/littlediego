@@ -41,7 +41,7 @@ canvas {
 
 <body>
 
-<div data-role="page" id="femmina" data-theme="a">
+<div data-role="page" id="maschio" data-theme="a">
 
 <div data-role="header" data-position="fixed">
 			<img src="img/header_logo.png" class="trias"></img>
@@ -1058,13 +1058,11 @@ var scatterChart1 = new Chart(cty, {
 	</script>
 
 <script>
-$(document).on("pagecontainerload",function(event,data){
-					var head= document.getElementsByTagName('head')[0];
-                    var script= document.createElement('script');
-                    script.type= 'text/javascript';
-                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-                    head.appendChild(script);	
-});
+   var script= document.createElement('script');
+   script.type= 'text/javascript';
+   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+   document.body.appendChild(script);
+
 </script>
 </body>
 </html>
