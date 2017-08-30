@@ -1,22 +1,22 @@
-document.getElementById("tabB").innerHTML = 'Profiles';
-document.getElementById("contactstab").innerHTML = 'Add New';
-document.getElementById("opzioni").innerHTML = 'Options';
-document.getElementById("unitmisura").innerHTML = 'Unit of measure';
-document.getElementById("saveopt").value = 'Save';
-document.getElementById("sexleg").innerHTML = 'Sex:';
-document.getElementById("etaleg").innerHTML = 'Age (months):';
-document.getElementById("pesoleg").innerHTML = 'Weight:';
-document.getElementById("altleg").innerHTML = 'Height:';
-document.getElementById("calcoform").value = 'Calculate';
+if (document.getElementById("tabB") !== null) { document.getElementById("tabB").innerHTML = 'Profiles'; }
+if (document.getElementById("contactstab") !== null){document.getElementById("contactstab").innerHTML = 'Add New'; }
+if (document.getElementById("opzioni") !== null){document.getElementById("opzioni").innerHTML = 'Options'; }
+if (document.getElementById("unitmisura") !== null){document.getElementById("unitmisura").innerHTML = 'Unit of measure'; }
+if (document.getElementById("saveopt") !== null){document.getElementById("saveopt").value = 'Save'; }
+if (document.getElementById("sexleg") !== null){document.getElementById("sexleg").innerHTML = 'Sex:'; }
+if (document.getElementById("etaleg") !== null){document.getElementById("etaleg").innerHTML = 'Age (months):'; }
+if (document.getElementById("pesoleg") !== null){document.getElementById("pesoleg").innerHTML = 'Weight:'; }
+if (document.getElementById("altleg") !== null){document.getElementById("altleg").innerHTML = 'Height:'; }
+if (document.getElementById("calcoform") !== null){document.getElementById("calcoform").value = 'Calculate'; }
 
-document.getElementById("resetM").innerHTML = 'Clear all data';
-document.getElementById("resetF").innerHTML = 'Clear all data';
-document.getElementById("linktograph").innerHTML = 'Access the graphs';
-document.getElementById("h1male").innerHTML = 'Male';
-document.getElementById("h1female").innerHTML = 'Female';
+if (document.getElementById("resetM") !== null){document.getElementById("resetM").innerHTML = 'Clear all data'; }
+if (document.getElementById("resetF") !== null){document.getElementById("resetF").innerHTML = 'Clear all data'; }
+if (document.getElementById("linktograph") !== null){document.getElementById("linktograph").innerHTML = 'Access the graphs'; }
+if (document.getElementById("h1male") !== null){document.getElementById("h1male").innerHTML = 'Male'; }
+if (document.getElementById("h1female") !== null){document.getElementById("h1female").innerHTML = 'Female'; }
 
 var ClearMessageM = 'All male datas have been cleared.';
 var ClearMessageF = 'All female datas have been cleared.';
 var completed = 'Completed';
 
-document.getElementById("istruzioni").innerHTML = '15 - 85 percentile : State of normality<br><span style="color: blue;">3 - 15 / 85 - 97 percentile : Mild pathology, to be monitored<span><br><span style="color: red;">&lt; 3 / &gt; 97 percentile : Blown pathology (visit recommended).</span><br>In relation to stature, a specialist examination is recommended (bone age evaluation, growth rate, hematochemical examinations, etc.)';
+if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '15 - 85 percentile : State of normality<br><span style="color: blue;">3 - 15 / 85 - 97 percentile : Mild pathology, to be monitored<span><br><span style="color: red;">&lt; 3 / &gt; 97 percentile : Blown pathology (visit recommended).</span><br>In relation to stature, a specialist examination is recommended (bone age evaluation, growth rate, hematochemical examinations, etc.)'; }
