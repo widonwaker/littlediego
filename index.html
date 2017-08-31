@@ -34,14 +34,6 @@
 	margin-left: auto;
 	margin-bottom: 5px;
 }
-.trias {
-	width: 25%;
-	display: block;
-	margin-top: 10px;
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom: 5px;
-}
 	</style>  
 </head>
 <body>
@@ -109,11 +101,10 @@ function onDeviceReady() {
         function (language) { 
 		    if (language.value == "it-IT") {
 				    window.localStorage.setItem("deflang","ita");
-					var head= document.getElementsByTagName('head')[0];
-                    var script= document.createElement('script');
+					var script= document.createElement('script');
                     script.type= 'text/javascript';
                     script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-                    head.appendChild(script);	
+                    document.body.appendChild(script);
 				} else {
 					window.localStorage.setItem("deflang","eng");
 				} 
