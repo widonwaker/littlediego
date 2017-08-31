@@ -13,6 +13,10 @@
 /* Globals */
 /* Font
 -----------------------------------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Merienda+One');
+* {
+	font-family: 'Merienda One', cursive !important;
+}
 html {
 	font-size: 100%;
 }
