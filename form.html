@@ -51,7 +51,7 @@
 </form> 
 
 </div>
-
+<a onclick="munnezz();">munnezz</a>
 <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-glyphish">
 		<div data-role="navbar" class="nav-glyphish">
 			<ul>
@@ -64,7 +64,12 @@
     
 </div>
 
+
 <script language="JavaScript" type="text/JavaScript">
+function munnezz(){
+	   	localStorage.removeItem("pesoM");
+	localStorage.removeItem("altezzaM");
+}
 
 function validateForm() {
 	var sesso = $('input[name="sesso"]:checked').val();
@@ -72,13 +77,47 @@ function validateForm() {
 	    if (localStorage.getItem("pesoM")===null) localStorage.setItem("pesoM", '');
 		if (localStorage.getItem("altezzaM")===null) localStorage.setItem("altezzaM", '');
 	    var oldpeso = localStorage.getItem("pesoM");
-		var oldaltezza = localStorage.getItem("pesoM");
+		var oldaltezza = localStorage.getItem("altezzaM");
         var peso = document.forms["myForm"]["peso"].value;
 		var peso = peso.replace(",",".");
         var eta = document.forms["myForm"]["eta"].value;
 		var eta = eta.replace(",",".");
 		var altezza = document.forms["myForm"]["altezza"].value;	
 		var altezza = altezza.replace(",",".");	
+		
+		/* rimpiazza valore se esistente per il peso */
+		if (localStorage.getItem("pesoM")!=="") {
+		oldpeso = '['+oldpeso+']';
+		oldpeso = oldpeso.replace(",]","]");
+		oldpeso = JSON.parse(oldpeso);
+		for (var i =0; i< oldpeso.length; i++) {			   	
+			if(oldpeso[i].x == eta) {
+				oldpeso[i].y = peso;
+				break;
+			}
+		}
+		oldpeso = JSON.stringify(oldpeso);
+		oldpeso = oldpeso.replace("[","");
+		oldpeso = oldpeso.replace("]",",");
+		}
+		/* fine rimpiazza valore se esistente per il peso */
+		
+		/* rimpiazza valore se esistente per altezza */
+		if (localStorage.getItem("altezzaM")!=="") {
+		oldaltezza = '['+oldaltezza+']';
+		oldaltezza = oldaltezza.replace(",]","]");
+		oldaltezza = JSON.parse(oldaltezza);
+		for (var i =0; i< oldaltezza.length; i++) {			   	
+			if(oldaltezza[i].x == eta) {
+				oldaltezza[i].y = altezza;
+				break;
+			}
+		}
+		oldaltezza = JSON.stringify(oldaltezza);
+		oldaltezza = oldaltezza.replace("[","");
+		oldaltezza = oldaltezza.replace("]",",");
+		}
+		/* fine rimpiazza valore se esistente per altezza */
 	    localStorage.setItem("pesoM", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
 	    localStorage.setItem("altezzaM", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
 	    location.href="maschio.html";
@@ -102,10 +141,8 @@ function validateForm() {
 </script>
 
 <script>
-   var script= document.createElement('script');
-   script.type= 'text/javascript';
-   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-   document.body.appendChild(script);
+var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
+var script = jQuery('<script/>').attr('src', src).appendTo('head');
 </script>
 </body>
 </html>
