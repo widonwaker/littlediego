@@ -13,7 +13,7 @@ if (document.getElementById("resetM") !== null){ document.getElementById("resetM
 if (document.getElementById("resetF") !== null){ document.getElementById("resetF").innerHTML = 'Cancella tutti i dati';}
 if (document.getElementById("linktograph") !== null){ document.getElementById("linktograph").innerHTML = 'Vai ai grafici';}
 if (document.getElementById("linktograph") !== null){ document.getElementById("linktographF").innerHTML = 'Vai ai grafici';}
- document.getElementById("h1male").innerHTML = "Maschio"; 
+if (document.getElementById("h1male") !== null) { document.getElementById("h1male").innerHTML = "Maschio"; }
 if (document.getElementById("h1female") !== null){ document.getElementById("h1female").innerHTML = "Femmina"; }
 
 if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '15 - 85 percentile : Stato di normalità<br><span style="color: blue;">3 - 15 / 85 - 97 percentile : Patologia lieve e da monitorare</span><br><span style="color: red;">&lt; 3 / &gt; 97 percentile : Patologia conclamata (si consiglia visita).</span><br>In relazione alla statura si consiglia visita specialistica (valutazione dell’età ossea, della velocità di crescita, esami ematochimici, ecc)';}
