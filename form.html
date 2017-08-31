@@ -54,7 +54,7 @@
 <input type="text" name="altezza" maxlength="5">
 </div>
 <div class="ui-field-contain">
-<input type="submit" value="Calcola" id="calcoform">
+<input type="submit" id="calcoform">
 </div>
 
 </form> 
@@ -65,8 +65,8 @@
 		<div data-role="navbar" class="nav-glyphish">
 			<ul>
 				<li><a href="#" onclick="location.href='index.html'" id="hometab" data-icon="home">Home</a></li>
-                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" ></a></li>
-				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" class="ui-btn-active"></a></li>
+                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" >Profili</a></li>
+				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" class="ui-btn-active">Nuova Misura</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer --> 
@@ -111,11 +111,10 @@ function validateForm() {
 </script>
 
 <script>
-					var head= document.getElementsByTagName('head')[0];
-                    var script= document.createElement('script');
-                    script.type= 'text/javascript';
-                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-                    head.appendChild(script);	
+   var script= document.createElement('script');
+   script.type= 'text/javascript';
+   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+   document.body.appendChild(script);
 </script>
 </body>
 </html>

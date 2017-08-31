@@ -28,7 +28,7 @@
 <body>
 <div data-role="page" id="" data-theme="a">
 
-<div data-role="header" data-position="fixed">
+<div data-role="header" >
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
         
@@ -36,7 +36,7 @@
    
   
 
-<div data-role="content" id="">
+<div data-role="content">
 
    <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
  <div class="ui-field-contain">
@@ -48,20 +48,21 @@
         <input name="misura" id="radio-choice-d" value="eng" type="radio">
         <label for="radio-choice-d">inch / lb</label>
 </fieldset>
-
-<input type="submit" value="Save" id="saveopt">
+</div>
+<div class="ui-field-contain">
+<input type="submit" id="saveopt">
 </div>
 
 </form> 
 
 <div data-role="collapsible">
-  <h1 id="h1male">Maschio</h1>
+  <h1 id="h1male"></h1>
   <p><a href="" onClick="resetM();" id="resetM">Clear all data</a><br><br><a href="" onClick="location.href='maschio.html'" id="linktograph">Access the graphs</a></p>
 </div>
 
 <div data-role="collapsible">
-  <h1 id="h1female">Femmina</h1>
-  <p><a href="" onClick="resetF();" id="resetF">Clear all data</a><br><br><a href="" onClick="location.href='femmina.html'" id="linktograph">Access the graphs</a></p>
+  <h1 id="h1female"></h1>
+  <p><a href="" onClick="resetF();" id="resetF">Clear all data</a><br><br><a href="" onClick="location.href='femmina.html'" id="linktographF">Access the graphs</a></p>
 </div>
 
 </div>
@@ -128,7 +129,6 @@ navigator.notification.alert(
    script.type= 'text/javascript';
    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
    document.body.appendChild(script);
-
 </script>
 </body>
 </html>
