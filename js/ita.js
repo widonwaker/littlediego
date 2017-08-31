@@ -12,7 +12,7 @@ if (document.getElementById("calcoform") !== null){ document.getElementById("cal
 if (document.getElementById("resetM") !== null){ document.getElementById("resetM").innerHTML = 'Cancella tutti i dati';}
 if (document.getElementById("resetF") !== null){ document.getElementById("resetF").innerHTML = 'Cancella tutti i dati';}
 if (document.getElementById("linktograph") !== null){ document.getElementById("linktograph").innerHTML = 'Vai ai grafici';}
-if (document.getElementById("linktograph") !== null){ document.getElementById("linktographF").innerHTML = 'Vai ai grafici';}
+if (document.getElementById("linktographF") !== null){ document.getElementById("linktographF").innerHTML = 'Vai ai grafici';}
 if (document.getElementById("h1male") !== null) { document.getElementById("h1male").innerHTML = "Maschio"; }
 if (document.getElementById("h1female") !== null){ document.getElementById("h1female").innerHTML = "Femmina"; }
 
