@@ -87,16 +87,19 @@ function validateForm() {
 		
 		/* rimpiazza valore se esistente per il peso */
 		if (localStorage.getItem("pesoM")!=="") {
+		var modificato = "";
 		oldpeso = '['+oldpeso+']';
 		oldpeso = oldpeso.replace(",]","]");
 		oldpeso = JSON.parse(oldpeso);
 		for (var i =0; i< oldpeso.length; i++) {			   	
 			if(oldpeso[i].x == eta) {
 				oldpeso[i].y = peso;
+				modificato = "si";
 				break;
 			}
 		}
 		oldpeso = JSON.stringify(oldpeso);
+		alert(oldpeso);
 		oldpeso = oldpeso.replace("[","");
 		oldpeso = oldpeso.replace("]",",");
 		}
@@ -110,6 +113,7 @@ function validateForm() {
 		for (var i =0; i< oldaltezza.length; i++) {			   	
 			if(oldaltezza[i].x == eta) {
 				oldaltezza[i].y = altezza;
+				modificato = "si";
 				break;
 			}
 		}
@@ -118,9 +122,15 @@ function validateForm() {
 		oldaltezza = oldaltezza.replace("]",",");
 		}
 		/* fine rimpiazza valore se esistente per altezza */
+		if (modificato !== "si") {
 	    localStorage.setItem("pesoM", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
 	    localStorage.setItem("altezzaM", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
 	    location.href="maschio.html";
+		} else {
+			localStorage.setItem("altezzaM", oldaltezza);
+			localStorage.setItem("pesoM", oldpeso);
+			location.href="maschio.html";
+		}
 	} else if (sesso == "femmina") {
 		if (localStorage.getItem("pesoF")===null) localStorage.setItem("pesoF", '');
 		if (localStorage.getItem("altezzaF")===null) localStorage.setItem("altezzaF", '');
@@ -132,9 +142,52 @@ function validateForm() {
 		var eta = eta.replace(",",".");
 		var altezza = document.forms["myForm"]["altezza"].value;	
 		var altezza = altezza.replace(",",".");			
+	    /* rimpiazza valore se esistente per il peso */
+		if (localStorage.getItem("pesoF")!=="") {
+		var modificato = "";
+		oldpeso = '['+oldpeso+']';
+		oldpeso = oldpeso.replace(",]","]");
+		oldpeso = JSON.parse(oldpeso);
+		for (var i =0; i< oldpeso.length; i++) {			   	
+			if(oldpeso[i].x == eta) {
+				oldpeso[i].y = peso;
+				modificato = "si";
+				break;
+			}
+		}
+		oldpeso = JSON.stringify(oldpeso);
+		alert(oldpeso);
+		oldpeso = oldpeso.replace("[","");
+		oldpeso = oldpeso.replace("]",",");
+		}
+		/* fine rimpiazza valore se esistente per il peso */
+		
+		/* rimpiazza valore se esistente per altezza */
+		if (localStorage.getItem("altezzaF")!=="") {
+		oldaltezza = '['+oldaltezza+']';
+		oldaltezza = oldaltezza.replace(",]","]");
+		oldaltezza = JSON.parse(oldaltezza);
+		for (var i =0; i< oldaltezza.length; i++) {			   	
+			if(oldaltezza[i].x == eta) {
+				oldaltezza[i].y = altezza;
+				modificato = "si";
+				break;
+			}
+		}
+		oldaltezza = JSON.stringify(oldaltezza);
+		oldaltezza = oldaltezza.replace("[","");
+		oldaltezza = oldaltezza.replace("]",",");
+		}
+		/* fine rimpiazza valore se esistente per altezza */
+		if (modificato !== "si") {
 	    localStorage.setItem("pesoF", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
 	    localStorage.setItem("altezzaF", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
 	    location.href="femmina.html";
+		} else {
+			localStorage.setItem("altezzaF", oldaltezza);
+			localStorage.setItem("pesoF", oldpeso);
+			location.href="femmina.html";
+		}
 	}
 } 
 
