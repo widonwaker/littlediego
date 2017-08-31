@@ -35,6 +35,7 @@ canvas {
 }
 #istruzioni {
 	margin-left:10px;
+	margin-right: 10px;
 }
 </style>
 </head>
@@ -62,7 +63,7 @@ canvas {
 			<ul>
 				<li><a href="#" onclick="location.href='index.html'" id="hometab" data-icon="home">Home</a></li>
                 <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" class="ui-btn-active">Profili</a></li>
-				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" >Nuova Misura</a></li>
+				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" >Nuove Misure</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer --> 
@@ -1054,11 +1055,10 @@ var scatterChart = new Chart(ctx, {
 	</script>
 
 <script>
-					var head= document.getElementsByTagName('head')[0];
-                    var script= document.createElement('script');
-                    script.type= 'text/javascript';
-                    script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-                    head.appendChild(script);	
+   var script= document.createElement('script');
+   script.type= 'text/javascript';
+   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
+   document.body.appendChild(script);
 </script>
 </body>
 </html>
