@@ -17,6 +17,14 @@
 * {
 	font-family: 'Merienda One', cursive !important;
 }
+.trias {
+	width: 50%;
+	display: block;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 5px;
+}
 html {
 	font-size: 100%;
 }
