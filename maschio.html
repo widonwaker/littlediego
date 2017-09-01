@@ -79,9 +79,11 @@ canvas {
 
 <script>
 function wholegraph() {
+	var step = 2;
 if (window.localStorage.getItem("misura") == 'eng') {
 	kg = 'lbs';
 	cm = 'inches';
+	step = 5;
 	
 	/* kg a libbre */
 $.each(PesoMArray, function (i) {
@@ -164,7 +166,7 @@ var scatterChart = new Chart(ctx, {
                 type: 'linear',
 				position: 'left',
                 ticks: {
-                    stepSize: 2,
+                    stepSize: step
                     /*callback: function(value, index, values) {
                         return value + 'Kg';
                     }*/
