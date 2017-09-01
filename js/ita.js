@@ -24,3 +24,7 @@ var completed = 'Completato';
 var miobimbo = 'Il mio bimbo';
 var miabimba = 'La mia bambina';
 var mesi = 'mesi';
+var bimboP = 'Peso bambino 0-24 Mesi';
+var bimboA = 'Altezza bambino 0-24 Mesi';
+var bimbaP = 'Peso bambina 0-24 Mesi';
+var bimbaA = 'Altezza bambina 0-24 Mesi';
