@@ -13,7 +13,6 @@
   <script src="jqm/jquery-1.10.2.min.js"></script>
   <script src="jqm/jquery.mobile-1.4.5.min.js"></script>
 
-
 </head>
 
 <body>
@@ -71,13 +70,20 @@
 </div>
 
 <script language="JavaScript" type="text/JavaScript">
+if (window.localStorage.getItem("misura") == 'ita') {
+	document.getElementById("radio-choice-c").checked = true;
+	document.getElementById("radio-choice-d").checked = false;
+} else if (window.localStorage.getItem("misura") == 'eng') {
+	document.getElementById("radio-choice-c").checked = false;
+	document.getElementById("radio-choice-d").checked = true;
+}
 
 function validateForm() {
 	var misura = $('input[name="misura"]:checked').val();
 	if (misura == "ita") {
-	    //
+	    window.localStorage.setItem("misura","ita");
 	} else if (misura == "eng") {
-		//
+		window.localStorage.setItem("misura","eng");
 	}
 } 
 
