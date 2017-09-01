@@ -21,3 +21,6 @@ if (document.getElementById("istruzioni") !== null){ document.getElementById("is
 var ClearMessageM = 'Tutti i dati relativi al profilo maschio sono stati cancellati.';
 var ClearMessageF = 'Tutti i dati relativi al profilo femmina sono stati cancellati.';
 var completed = 'Completato';
+var miobimbo = 'Il mio bimbo';
+var miabimba = 'La mia bambina';
+var mesi = 'mesi';

@@ -12,11 +12,15 @@ if (document.getElementById("calcoform") !== null){document.getElementById("calc
 if (document.getElementById("resetM") !== null){document.getElementById("resetM").innerHTML = 'Clear all data'; }
 if (document.getElementById("resetF") !== null){document.getElementById("resetF").innerHTML = 'Clear all data'; }
 if (document.getElementById("linktograph") !== null){document.getElementById("linktograph").innerHTML = 'Access the graphs'; }
+if (document.getElementById("linktograph") !== null){document.getElementById("linktographF").innerHTML = 'Access the graphs'; }
 if (document.getElementById("h1male") !== null){document.getElementById("h1male").innerHTML = 'Male'; }
 if (document.getElementById("h1female") !== null){document.getElementById("h1female").innerHTML = 'Female'; }
 
 var ClearMessageM = 'All male datas have been cleared.';
 var ClearMessageF = 'All female datas have been cleared.';
 var completed = 'Completed';
+var miobimbo = 'My son';
+var miabimba = 'My daughter';
+var mesi = 'months';
 
 if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '15 - 85 percentile : State of normality<br><span style="color: blue;">3 - 15 / 85 - 97 percentile : Mild pathology, to be monitored<span><br><span style="color: red;">&lt; 3 / &gt; 97 percentile : Blown pathology (visit recommended).</span><br>In relation to stature, a specialist examination is recommended (bone age evaluation, growth rate, hematochemical examinations, etc.)'; }
