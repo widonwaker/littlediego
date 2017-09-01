@@ -12,13 +12,15 @@
   <link rel="stylesheet" href="jqm/jquery.mobile.structure-1.4.5.min.css" />
   <script src="jqm/jquery-1.10.2.min.js"></script>
   <script src="jqm/jquery.mobile-1.4.5.min.js"></script>
-
+  <style>
+   .ui-page-header-fixed { padding-top: 10vh !important; }
+  </style>
 </head>
 
 <body>
 <div data-role="page" id="profili" data-theme="a">
 
-<div data-role="header" data-position="fixed" data-tap-toggle="false">
+<div data-role="header" data-position="fixed" data-tap-toggle="false" id="header">
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
         
@@ -26,7 +28,7 @@
    
   
 
-<div data-role="content">
+<div data-role="content" id="content">
 
    <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
  <div class="ui-field-contain">
@@ -125,9 +127,6 @@ navigator.notification.alert(
 var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
 var script = jQuery('<script/>').attr('src', src).appendTo('head');
 
-$( document ).on( "pageshow", function(){
-    $( "[data-position='fixed']" ).trigger( 'updatelayout' );
-} );
 </script>
 </body>
 </html>
