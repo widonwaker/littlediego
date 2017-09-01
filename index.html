@@ -38,7 +38,7 @@
 </head>
 <body>
 	<div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<img src="img/trias.png" class="trias"></img>
 		</div>
 
@@ -117,12 +117,6 @@ function onDeviceReady() {
 
 </script>
 
-<script>
-$( window ).load(function() {
-    if (window.location.href.indexOf('reload')==-1) {
-         window.location.replace(window.location.href+'?reload');
-    }
-});
-</script>
+
 </body>
 </html>

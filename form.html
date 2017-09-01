@@ -17,7 +17,7 @@
 <body>
 <div data-role="page" id="" data-theme="a">
 
-<div data-role="header" data-position="fixed">
+<div data-role="header" data-position="fixed" data-tap-toggle="false">
 			<img src="img/header_logo.png" class="trias"></img>
 		</div>
 
@@ -191,6 +191,10 @@ function validateForm() {
 <script>
 var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
 var script = jQuery('<script/>').attr('src', src).appendTo('head');
+
+$( document ).on( "pageshow", function(){
+    $( "[data-position='fixed']" ).trigger( 'updatelayout' );
+} );
 </script>
 </body>
 </html>
