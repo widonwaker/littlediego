@@ -10,6 +10,22 @@
   <script src="jqm/jquery-1.10.2.min.js"></script>
   <script src="jqm/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/Chart.bundle.min.js"></script>
+<script>
+var peso ="[";
+peso += localStorage.getItem("pesoF");
+peso += ']';
+var peso = peso.replace(",]","]");
+peso = JSON.parse(peso);
+
+var altezza ="[";
+altezza += localStorage.getItem("altezzaF");
+altezza += ']';
+var altezza = altezza.replace(",]","]");
+altezza = JSON.parse(altezza);
+
+var kg = 'Kg';
+var cm = 'cm';
+</script>
 <style>
 canvas {
   border: 0px solid pink;
@@ -63,449 +79,56 @@ canvas {
 </div>
 
 <script>
+function wholegraph() {
+	var step = 2;
+if (window.localStorage.getItem("misura") == 'eng') {
+	kg = 'lbs';
+	cm = 'inches';
+	step = 5;
+	
+	/* kg a libbre */
+$.each(PesoFArray, function (i) {
+    $.each(this, function (key, value) {
+    {
+        if (key == "data") {
+            $.each(value, function (key1, value1) {
+                for(k in value1) {
+					if (k=='x') continue;
+                     value1[k] = Math.round(value1[k] * 2.205 * 100)/100;
+                }
+            })
+        }
+    }
+    });
+});
+
+	/* cm a pollici */
+$.each(AltezzaFArray, function (i) {
+    $.each(this, function (key, value) {
+    {
+        if (key == "data") {
+            $.each(value, function (key1, value1) {
+                for(k in value1) {
+					if (k=='x') continue;
+                     value1[k] = Math.round(value1[k] * 0.393701 * 100)/100;
+                }
+            })
+        }
+    }
+    });
+});
+} // fine if
+
+
 window.onload = function() {
 var ctx = document.getElementById("peso").getContext('2d');
 
-var peso ="[";
-peso += localStorage.getItem("pesoF");
-peso += ']';
-var peso = peso.replace(",]","]");
-peso = JSON.parse(peso);
 
-var altezza ="[";
-altezza += localStorage.getItem("altezzaF");
-altezza += ']';
-var altezza = altezza.replace(",]","]");
-altezza = JSON.parse(altezza);
 
 var scatterChart = new Chart(ctx, {
     type: 'scatter',
     data: {
-        datasets: [{
-            label: '3 percentile',
-			fill: false,
-			backgroundColor: "rgba(255,0,0,0.2)",
-            borderColor: "rgba(255,0,0,1)",
-            borderWidth: 3,
-            data: [{
-                x: 0,
-                y: 2.4
-            }, {
-                x: 1,
-                y: 3.3
-            }, {
-                x: 2,
-                y: 4
-            }, {
-                x: 3,
-                y: 4.6
-            }, {
-                x: 4,
-                y: 5.1
-            }, {
-                x: 5,
-                y: 5.45
-            }, {
-                x: 6,
-                y: 5.8
-            }, {
-                x: 7,
-                y: 6.08
-            }, {
-                x: 8,
-                y: 6.35
-            }, {
-                x: 9,
-                y: 6.58
-            }, {
-                x: 10,
-                y: 6.8
-            }, {
-                x: 11,
-                y: 6.98
-            }, {
-                x: 12,
-                y: 7.15
-            }, {
-                x: 13,
-                y: 7.32
-            }, {
-                x: 14,
-                y: 7.48
-            }, {
-                x: 15,
-                y: 7.65
-            }, {
-                x: 16,
-                y: 7.82
-            }, {
-                x: 17,
-                y: 7.99
-            }, {
-                x: 18,
-                y: 8.15
-            }, {
-                x: 19,
-                y: 8.32
-            }, {
-                x: 20,
-                y: 8.49
-            }, {
-                x: 21,
-                y: 8.65
-            }, {
-                x: 22,
-                y: 8.82
-            }, {
-                x: 23,
-                y: 8.99
-            }, {
-                x: 24,
-                y: 9.15
-            }]
-        },
-		{
-            label: '15 percentile',
-			fill: false,
-			backgroundColor: "rgba(0,0,0,0.2)",
-            borderColor: "rgba(0,0,0,1)",
-            borderWidth: 1,
-            data: [{
-                x: 0,
-                y: 2.8
-            }, {
-                x: 1,
-                y: 3.7
-            }, {
-                x: 2,
-                y: 4.5
-            }, {
-                x: 3,
-                y: 5.1
-            }, {
-                x: 4,
-                y: 5.65
-            }, {
-                x: 5,
-                y: 6.03
-            }, {
-                x: 6,
-                y: 6.4
-            }, {
-                x: 7,
-                y: 6.70
-            }, {
-                x: 8,
-                y: 7
-            }, {
-                x: 9,
-                y: 7.25
-            }, {
-                x: 10,
-                y: 7.5
-            }, {
-                x: 11,
-                y: 7.7
-            }, {
-                x: 12,
-                y: 7.9
-            }, {
-                x: 13,
-                y: 8.08
-            }, {
-                x: 14,
-                y: 8.27
-            }, {
-                x: 15,
-                y: 8.45
-            }, {
-                x: 16,
-                y: 8.63
-            }, {
-                x: 17,
-                y: 8.82
-            }, {
-                x: 18,
-                y: 9
-            }, {
-                x: 19,
-                y: 9.18
-            }, {
-                x: 20,
-                y: 9.36
-            }, {
-                x: 21,
-                y: 9.55
-            }, {
-                x: 22,
-                y: 9.73
-            }, {
-                x: 23,
-                y: 9.91
-            }, {
-                x: 24,
-                y: 10.1
-            }]
-        },
-		{
-            label: '50 percentile',
-			fill: false,
-			backgroundColor: "rgba(160,160,160,0.2)",
-            borderColor: "rgba(160,160,160,1)",
-            borderWidth: 1,
-			borderDash: [20, 30],
-            data: [{
-                x: 0,
-                y: 3.2
-            }, {
-                x: 1,
-                y: 4.2
-            }, {
-                x: 2,
-                y: 5.2
-            }, {
-                x: 3,
-                y: 5.8
-            }, {
-                x: 4,
-                y: 6.4
-            }, {
-                x: 5,
-                y: 6.85
-            }, {
-                x: 6,
-                y: 7.3
-            }, {
-                x: 7,
-                y: 7.63
-            }, {
-                x: 8,
-                y: 7.95
-            }, {
-                x: 9,
-                y: 8.23
-            }, {
-                x: 10,
-                y: 8.5
-            }, {
-                x: 11,
-                y: 8.73
-            }, {
-                x: 12,
-                y: 8.95
-            }, {
-                x: 13,
-                y: 9.16
-            }, {
-                x: 14,
-                y: 9.37
-            }, {
-                x: 15,
-                y: 9.59
-            }, {
-                x: 16,
-                y: 9.8
-            }, {
-                x: 17,
-                y: 10.01
-            }, {
-                x: 18,
-                y: 10.22
-            }, {
-                x: 19,
-                y: 10.43
-            }, {
-                x: 20,
-                y: 10.65
-            }, {
-                x: 21,
-                y: 10.86
-            }, {
-                x: 22,
-                y: 11.08
-            }, {
-                x: 23,
-                y: 11.28
-            }, {
-                x: 24,
-                y: 11.49
-            }]
-        },
-		{
-            label: '85 percentile',
-			fill: false,
-			backgroundColor: "rgba(0,0,0,0.2)",
-            borderColor: "rgba(0,0,0,1)",
-            borderWidth: 1,
-            data: [{
-                x: 0,
-                y: 3.70
-            }, {
-                x: 1,
-                y: 4.9
-            }, {
-                x: 2,
-                y: 5.9
-            }, {
-                x: 3,
-                y: 6.65
-            }, {
-                x: 4,
-                y: 7.3
-            }, {
-                x: 5,
-                y: 7.8
-            }, {
-                x: 6,
-                y: 8.3
-            }, {
-                x: 7,
-                y: 8.65
-            }, {
-                x: 8,
-                y: 9
-            }, {
-                x: 9,
-                y: 9.33
-            }, {
-                x: 10,
-                y: 9.65
-            }, {
-                x: 11,
-                y: 9.93
-            }, {
-                x: 12,
-                y: 10.2
-            }, {
-                x: 13,
-                y: 10.44
-            }, {
-                x: 14,
-                y: 10.68
-            }, {
-                x: 15,
-                y: 10.93
-            }, {
-                x: 16,
-                y: 11.17
-            }, {
-                x: 17,
-                y: 11.41
-            }, {
-                x: 18,
-                y: 11.65
-            }, {
-                x: 19,
-                y: 11.89
-            }, {
-                x: 20,
-                y: 12.14
-            }, {
-                x: 21,
-                y: 12.38
-            }, {
-                x: 22,
-                y: 12.62
-            }, {
-                x: 23,
-                y: 12.86
-            }, {
-                x: 24,
-                y: 13.1
-            }]
-        },
-		{
-            label: '97 percentile',
-			fill: false,
-			backgroundColor: "rgba(255,0,0,0.2)",
-            borderColor: "rgba(255,0,0,1)",
-            borderWidth: 3,
-            data: [{
-                x: 0,
-                y: 4.2
-            }, {
-                x: 1,
-                y: 5.45
-            }, {
-                x: 2,
-                y: 6.6
-            }, {
-                x: 3,
-                y: 7.4
-            }, {
-                x: 4,
-                y: 8.1
-            }, {
-                x: 5,
-                y: 8.65
-            }, {
-                x: 6,
-                y: 9.2
-            }, {
-                x: 7,
-                y: 9.6
-            }, {
-                x: 8,
-                y: 10
-            }, {
-                x: 9,
-                y: 10.35
-            }, {
-                x: 10,
-                y: 10.7
-            }, {
-                x: 11,
-                y: 11.03
-            }, {
-                x: 12,
-                y: 11.35
-            }, {
-                x: 13,
-                y: 11.62
-            }, {
-                x: 14,
-                y: 11.89
-            }, {
-                x: 15,
-                y: 12.16
-            }, {
-                x: 16,
-                y: 12.43
-            }, {
-                x: 17,
-                y: 12.71
-            }, {
-                x: 18,
-                y: 12.98
-            }, {
-                x: 19,
-                y: 13.25
-            }, {
-                x: 20,
-                y: 13.52
-            }, {
-                x: 21,
-                y: 13.79
-            }, {
-                x: 22,
-                y: 14.06
-            }, {
-                x: 23,
-                y: 14.33
-            }, {
-                x: 24,
-                y: 14.6
-            }]
-        },
-		{
-            label: 'La mia bimba',
-			fill: false,
-			radius: 2,
-			backgroundColor: "rgba(255,153,204,0.2)",
-            borderColor: "rgba(255,153,204,1)",
-            borderWidth: 4,
-            data: peso
-        }]
+        datasets: PesoFArray
     },
 	
     options: {
@@ -513,7 +136,7 @@ var scatterChart = new Chart(ctx, {
         maintainAspectRatio: false,
 		title: {
             display: true,
-            text: 'Peso Bambina 0-24 Mesi'
+            text: bimbaP
         },
 		elements: {
              point: {
@@ -541,7 +164,7 @@ var scatterChart = new Chart(ctx, {
                 },
 				scaleLabel: {
                    
-                   labelString: 'mesi'
+                   labelString: mesi
                 }
             }],
 			yAxes: [{
@@ -549,11 +172,11 @@ var scatterChart = new Chart(ctx, {
                 type: 'linear',
 				position: 'left',
                 ticks: {
-                    stepSize: 2
+                    stepSize: step
                 },
 				scaleLabel: {
                    display: true,
-                   labelString: 'Kg'
+                   labelString: kg
                 }
             }]
         }
@@ -566,431 +189,7 @@ var scatterChart = new Chart(ctx, {
 	var scatterChart2 = new Chart(cty, {
     type: 'scatter',
     data: {
-        datasets: [{
-            label: '3 percentile',
-			fill: false,
-			backgroundColor: "rgba(255,0,0,0.2)",
-            borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
-            data: [{
-                x: 0,
-                y: 45.5
-            }, {
-                x: 1,
-                y: 50
-            }, {
-                x: 2,
-                y: 53.4
-            }, {
-                x: 3,
-                y: 56
-            }, {
-                x: 4,
-                y: 58
-            }, {
-                x: 5,
-                y: 59.75
-            }, {
-                x: 6,
-                y: 61.5
-            }, {
-                x: 7,
-                y: 62.95
-            }, {
-                x: 8,
-                y: 64.4
-            }, {
-                x: 9,
-                y: 65.7
-            }, {
-                x: 10,
-                y: 67
-            }, {
-                x: 11,
-                y: 68.1
-            }, {
-                x: 12,
-                y: 69.2
-            }, {
-                x: 13,
-                y: 70.13
-            }, {
-                x: 14,
-                y: 71.07
-            }, {
-                x: 15,
-                y: 72
-            }, {
-                x: 16,
-                y: 72.93
-            }, {
-                x: 17,
-                y: 73.87
-            }, {
-                x: 18,
-                y: 74.8
-            }, {
-                x: 19,
-                y: 75.73
-            }, {
-                x: 20,
-                y: 76.67
-            }, {
-                x: 21,
-                y: 77.6
-            }, {
-                x: 22,
-                y: 78.53
-            }, {
-                x: 23,
-                y: 79.47
-            }, {
-                x: 24,
-                y: 80.4
-            }]
-        },
-		{
-            label: '15 percentile',
-			fill: false,
-			backgroundColor: "rgba(0,0,0,0.2)",
-            borderColor: "rgba(0,0,0,1)",
-            borderWidth: 1,
-            data: [{
-                x: 0,
-                y: 47.3
-            }, {
-                x: 1,
-                y: 51.8
-            }, {
-                x: 2,
-                y: 55
-            }, {
-                x: 3,
-                y: 57.5
-            }, {
-                x: 4,
-                y: 59.8
-            }, {
-                x: 5,
-                y: 61.55
-            }, {
-                x: 6,
-                y: 63.3
-            }, {
-                x: 7,
-                y: 64.8
-            }, {
-                x: 8,
-                y: 66.3
-            }, {
-                x: 9,
-                y: 67.65
-            }, {
-                x: 10,
-                y: 69
-            }, {
-                x: 11,
-                y: 70.25
-            }, {
-                x: 12,
-                y: 71.5
-            }, {
-                x: 13,
-                y: 72.46
-            }, {
-                x: 14,
-                y: 73.42
-            }, {
-                x: 15,
-                y: 74.38
-            }, {
-                x: 16,
-                y: 75.33
-            }, {
-                x: 17,
-                y: 76.29
-            }, {
-                x: 18,
-                y: 77.25
-            }, {
-                x: 19,
-                y: 78.21
-            }, {
-                x: 20,
-                y: 79.17
-            }, {
-                x: 21,
-                y: 80.13
-            }, {
-                x: 22,
-                y: 81.08
-            }, {
-                x: 23,
-                y: 82.04
-            }, {
-                x: 24,
-                y: 83
-            }]
-        },
-		{
-            label: '50 percentile',
-			fill: false,
-			backgroundColor: "rgba(160,160,160,0.2)",
-            borderColor: "rgba(160,160,160,1)",
-            borderWidth: 1,
-			borderDash: [20, 30],
-            data: [{
-                x: 0,
-                y: 49.2
-            }, {
-                x: 1,
-                y: 53.8
-            }, {
-                x: 2,
-                y: 57.2
-            }, {
-                x: 3,
-                y: 59.8
-            }, {
-                x: 4,
-                y: 62
-            }, {
-                x: 5,
-                y: 63.9
-            }, {
-                x: 6,
-                y: 65.8
-            }, {
-                x: 7,
-                y: 67.2
-            }, {
-                x: 8,
-                y: 68.6
-            }, {
-                x: 9,
-                y: 70.05
-            }, {
-                x: 10,
-                y: 71.5
-            }, {
-                x: 11,
-                y: 72.75
-            }, {
-                x: 12,
-                y: 74
-            }, {
-                x: 13,
-                y: 75.04
-            }, {
-                x: 14,
-                y: 76.08
-            }, {
-                x: 15,
-                y: 77.13
-            }, {
-                x: 16,
-                y: 78.17
-            }, {
-                x: 17,
-                y: 79.21
-            }, {
-                x: 18,
-                y: 80.25
-            }, {
-                x: 19,
-                y: 81.29
-            }, {
-                x: 20,
-                y: 82.33
-            }, {
-                x: 21,
-                y: 83.38
-            }, {
-                x: 22,
-                y: 84.42
-            }, {
-                x: 23,
-                y: 85.46
-            }, {
-                x: 24,
-                y: 86.5
-            }]
-        },
-		{
-            label: '85 percentile',
-			fill: false,
-			backgroundColor: "rgba(0,0,0,0.2)",
-            borderColor: "rgba(0,0,0,1)",
-            borderWidth: 1,
-            data: [{
-                x: 0,
-                y: 51
-            }, {
-                x: 1,
-                y: 55.7
-            }, {
-                x: 2,
-                y: 59.3
-            }, {
-                x: 3,
-                y: 62
-            }, {
-                x: 4,
-                y: 64.4
-            }, {
-                x: 5,
-                y: 66.2
-            }, {
-                x: 6,
-                y: 68
-            }, {
-                x: 7,
-                y: 69.5
-            }, {
-                x: 8,
-                y: 71.1
-            }, {
-                x: 9,
-                y: 72.55
-            }, {
-                x: 10,
-                y: 74
-            }, {
-                x: 11,
-                y: 75.4
-            }, {
-                x: 12,
-                y: 76.8
-            }, {
-                x: 13,
-                y: 77.88
-            }, {
-                x: 14,
-                y: 78.97
-            }, {
-                x: 15,
-                y: 80.05
-            }, {
-                x: 16,
-                y: 81.13
-            }, {
-                x: 17,
-                y: 82.22
-            }, {
-                x: 18,
-                y: 83.3
-            }, {
-                x: 19,
-                y: 84.38
-            }, {
-                x: 20,
-                y: 85.47
-            }, {
-                x: 21,
-                y: 86.55
-            }, {
-                x: 22,
-                y: 87.63
-            }, {
-                x: 23,
-                y: 88.72
-            }, {
-                x: 24,
-                y: 89.80
-            }]
-        },
-		{
-            label: '97 percentile',
-			fill: false,
-			backgroundColor: "rgba(255,0,0,0.2)",
-            borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
-            data: [{
-                x: 0,
-                y: 52.6
-            }, {
-                x: 1,
-                y: 57.5
-            }, {
-                x: 2,
-                y: 61
-            }, {
-                x: 3,
-                y: 63.8
-            }, {
-                x: 4,
-                y: 66.3
-            }, {
-                x: 5,
-                y: 68.15
-            }, {
-                x: 6,
-                y: 70
-            }, {
-                x: 7,
-                y: 71.55
-            }, {
-                x: 8,
-                y: 73.1
-            }, {
-                x: 9,
-                y: 74.55
-            }, {
-                x: 10,
-                y: 76
-            }, {
-                x: 11,
-                y: 77.4
-            }, {
-                x: 12,
-                y: 78.8
-            }, {
-                x: 13,
-                y: 79.94
-            }, {
-                x: 14,
-                y: 81.08
-            }, {
-                x: 15,
-                y: 82.23
-            }, {
-                x: 16,
-                y: 83.37
-            }, {
-                x: 17,
-                y: 84.51
-            }, {
-                x: 18,
-                y: 85.65
-            }, {
-                x: 19,
-                y: 86.79
-            }, {
-                x: 20,
-                y: 87.93
-            }, {
-                x: 21,
-                y: 89.08
-            }, {
-                x: 22,
-                y: 90.22
-            }, {
-                x: 23,
-                y: 91.36
-            }, {
-                x: 24,
-                y: 92.50
-            }]
-        },
-		{
-            label: 'La mia bimba',
-			fill: false,
-			radius: 2,
-			backgroundColor: "rgba(255,153,204,0.2)",
-            borderColor: "rgba(255,153,204,1)",
-            borderWidth: 4,
-            data: altezza
-        }]
+        datasets: AltezzaFArray
     },
 	
     options: {
@@ -998,7 +197,7 @@ var scatterChart = new Chart(ctx, {
         maintainAspectRatio: false,
 		title: {
             display: true,
-            text: 'Altezza Bambina 0-24 Mesi'
+            text: bimbaA
         },
 		elements: {
              point: {
@@ -1025,7 +224,7 @@ var scatterChart = new Chart(ctx, {
                 },
 				scaleLabel: {
                    display: true,
-                   labelString: 'mesi'
+                   labelString: mesi
                 }
             }],
 			yAxes: [{
@@ -1036,7 +235,7 @@ var scatterChart = new Chart(ctx, {
                 },
 				scaleLabel: {
                    display: true,
-                   labelString: 'cm'
+                   labelString: cm
                 }
             }]
         }
@@ -1044,13 +243,18 @@ var scatterChart = new Chart(ctx, {
 });
 
 };
+
+} // function wholegraph
 	</script>
 
 <script>
-   var script= document.createElement('script');
-   script.type= 'text/javascript';
-   script.src= 'js/' + window.localStorage.getItem("deflang") + '.js';
-   document.body.appendChild(script);
+var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
+var script = jQuery('<script/>').attr('src', src).appendTo('head');
+
+var src2 = 'js/misureF.js';
+var script2 = jQuery('<script/>').attr('src', src2).appendTo('head');
+
+wholegraph();
 </script>
 </body>
 </html>
