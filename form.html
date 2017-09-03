@@ -192,10 +192,6 @@ function validateForm() {
 <script>
 var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
 var script = jQuery('<script/>').attr('src', src).appendTo('head');
-
-$( document ).on( "pageshow", function(){
-    $( "[data-position='fixed']" ).trigger( 'updatelayout' );
-} );
 </script>
 </body>
 </html>

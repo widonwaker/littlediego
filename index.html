@@ -117,6 +117,9 @@ function onDeviceReady() {
 
 </script>
 
-
+<script>
+var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
+var script = jQuery('<script/>').attr('src', src).appendTo('head');
+</script>
 </body>
 </html>
