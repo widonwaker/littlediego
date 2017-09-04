@@ -16,7 +16,7 @@ if (document.getElementById("linktograph") !== null){document.getElementById("li
 if (document.getElementById("h1male") !== null){document.getElementById("h1male").innerHTML = 'Male'; }
 if (document.getElementById("h1female") !== null){document.getElementById("h1female").innerHTML = 'Female'; }
 
-if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '15 - 85 percentile : <br>State of normality<br><span style="color: blue; font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif !important;">3 - 15 / 85 - 97 percentile : <br>Mild pathology, to be monitored</span><br><span style="color: red; font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif !important;">Lower than 3 / Higher than 97 percentile : <br>Blown pathology (visit recommended).<br>In relation to stature, a specialist examination is recommended (bone age evaluation, growth rate, hematochemical examinations, etc.)</span>'; }
+if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '<b>15 - 85 percentile:</b> <br>State of normality<br><b>3 - 15 / 85 - 97 percentile:</b> <br>Mild pathology, to be monitored<br><b>Lower than 3 / Higher than 97 percentile:</b> <br>Blown pathology (visit recommended).<br>In relation to stature, a specialist examination is recommended (bone age evaluation, growth rate, hematochemical examinations, etc.)'; }
 
 var ClearMessageM = 'All male datas have been cleared.';
 var ClearMessageF = 'All female datas have been cleared.';
