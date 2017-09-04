@@ -85,7 +85,7 @@ function validateForm() {
 		
 		if (window.localStorage.getItem("misura") == 'eng') {
 			peso = Math.round(peso * 0.453592 * 100) / 100;
-			altezza = Math.round(peso * 2.54 * 100) / 100;
+			altezza = Math.round(altezza * 2.54 * 100) / 100;
 		}
 		
 		/* rimpiazza valore se esistente per il peso */
@@ -147,7 +147,7 @@ function validateForm() {
 		
 		if (window.localStorage.getItem("misura") == 'eng') {
 			peso = Math.round(peso * 0.453592 * 100) / 100;
-			altezza = Math.round(peso * 2.54 * 100) / 100;
+			altezza = Math.round(altezza * 2.54 * 100) / 100;
 		}
 			
 	    /* rimpiazza valore se esistente per il peso */
