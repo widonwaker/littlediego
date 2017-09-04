@@ -75,12 +75,18 @@ function validateForm() {
 		if (localStorage.getItem("altezzaM")===null) localStorage.setItem("altezzaM", '');
 	    var oldpeso = localStorage.getItem("pesoM");
 		var oldaltezza = localStorage.getItem("altezzaM");
+		
         var peso = document.forms["myForm"]["peso"].value;
-		var peso = peso.replace(",",".");
+		peso = peso.replace(",",".");
         var eta = document.forms["myForm"]["eta"].value;
-		var eta = eta.replace(",",".");
+		eta = eta.replace(",",".");
 		var altezza = document.forms["myForm"]["altezza"].value;	
-		var altezza = altezza.replace(",",".");	
+		altezza = altezza.replace(",",".");	
+		
+		if (window.localStorage.getItem("misura") == 'eng') {
+			peso = Math.round(peso * 0.453592 * 100) / 100;
+			altezza = Math.round(peso * 2.54 * 100) / 100;
+		}
 		
 		/* rimpiazza valore se esistente per il peso */
 		if (localStorage.getItem("pesoM")!=="") {
@@ -133,11 +139,17 @@ function validateForm() {
 	    var oldpeso = localStorage.getItem("pesoF");
         var oldaltezza = localStorage.getItem("altezzaF");
         var peso = document.forms["myForm"]["peso"].value;
-		var peso = peso.replace(",",".");
+		peso = peso.replace(",",".");
         var eta = document.forms["myForm"]["eta"].value;
-		var eta = eta.replace(",",".");
+		eta = eta.replace(",",".");
 		var altezza = document.forms["myForm"]["altezza"].value;	
-		var altezza = altezza.replace(",",".");			
+		altezza = altezza.replace(",",".");		
+		
+		if (window.localStorage.getItem("misura") == 'eng') {
+			peso = Math.round(peso * 0.453592 * 100) / 100;
+			altezza = Math.round(peso * 2.54 * 100) / 100;
+		}
+			
 	    /* rimpiazza valore se esistente per il peso */
 		if (localStorage.getItem("pesoF")!=="") {
 		var modificato = "";
