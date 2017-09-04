@@ -3,7 +3,7 @@ var PesoFArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 3,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 2.4
@@ -336,7 +336,7 @@ var PesoFArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 3,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 4.2
@@ -436,7 +436,7 @@ var AltezzaFArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 45.5
@@ -769,7 +769,7 @@ var AltezzaFArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 52.6

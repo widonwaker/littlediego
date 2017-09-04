@@ -3,7 +3,7 @@ var PesoMArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 2.5
@@ -336,7 +336,7 @@ var PesoMArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 4.3
@@ -436,7 +436,7 @@ var AltezzaMArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 46.5
@@ -769,7 +769,7 @@ var AltezzaMArray = [{
 			fill: false,
 			backgroundColor: "rgba(255,0,0,0.2)",
             borderColor: "rgba(255,0,0,1)",
-            borderWidth: 2,
+            borderWidth: 1,
             data: [{
                 x: 0,
                 y: 53.5
