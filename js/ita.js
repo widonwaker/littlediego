@@ -16,7 +16,7 @@ if (document.getElementById("linktographF") !== null){ document.getElementById("
 if (document.getElementById("h1male") !== null) { document.getElementById("h1male").innerHTML = "Maschio"; }
 if (document.getElementById("h1female") !== null){ document.getElementById("h1female").innerHTML = "Femmina"; }
 
-if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '<b>15 - 85 percentile:</b> <br>Stato di normalità<br><b>3 - 15 / 85 - 97 percentile:</b> <br>Patologia lieve e da monitorare<br><b>Minore di 3 / Maggiore di 97 percentile:</b> <br>Patologia conclamata (si consiglia visita).<br>In relazione alla statura si consiglia visita specialistica (valutazione dell’età ossea, della velocità di crescita, esami ematochimici, ecc)';}
+if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '<b>SOGLIE PERCENTILI</b> <br><b>15 - 85 percentile:</b> <br>Stato di normalità<br><b>3 - 15 / 85 - 97 percentile:</b> <br>Patologia lieve e da monitorare<br><b>Minore di 3 / Maggiore di 97 percentile:</b> <br>Patologia conclamata (si consiglia visita).<br>In relazione alla statura si consiglia visita specialistica (valutazione dell’età ossea, della velocità di crescita, esami ematochimici, ecc)';}
 
 var ClearMessageM = 'Tutti i dati relativi al profilo maschio sono stati cancellati.';
 var ClearMessageF = 'Tutti i dati relativi al profilo femmina sono stati cancellati.';
