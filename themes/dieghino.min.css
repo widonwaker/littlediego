@@ -25,6 +25,9 @@
 	margin-left: auto;
 	margin-bottom: 5px;
 }
+::-webkit-scrollbar { 
+    display: none; 
+}
 html {
 	font-size: 100%;
 }
