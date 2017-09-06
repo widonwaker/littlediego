@@ -25,14 +25,8 @@
 
 <div data-role="content" id="">
  <form name="myForm" action="" onsubmit="validateForm(); return false;" method="post">
- <div class="ui-field-contain">
-<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-    <legend id="sexleg">Sesso:</legend>
-        <input name="sesso" id="radio-choice-c" value="maschio" checked="checked" type="radio">
-        <label for="radio-choice-c">M</label>
-        <input name="sesso" id="radio-choice-d" value="femmina" type="radio">
-        <label for="radio-choice-d">F</label>
-</fieldset>
+ <div class="ui-field-contain" id="intestazione">
+ 
 </div>
 <div class="ui-field-contain">
 <label for="eta" id="etaleg">Età (mesi):</label> 
@@ -58,8 +52,7 @@
 		<div data-role="navbar" class="nav-glyphish">
 			<ul>
 				<li><a href="#" onclick="location.href='index.html'" id="hometab" data-icon="home">Home</a></li>
-                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" >Profili</a></li>
-				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" class="ui-btn-active">Nuova Misura</a></li>
+                <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" class="ui-btn-active">Profili</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer --> 
@@ -68,13 +61,16 @@
 
 
 <script language="JavaScript" type="text/JavaScript">
+var searchParams = new URLSearchParams(window.location.search);
+	var sesso = searchParams.get("sesso");
+	var nome = searchParams.get("nome");
+	
 function validateForm() {
-	var sesso = $('input[name="sesso"]:checked').val();
 	if (sesso == "maschio") {
-	    if (localStorage.getItem("pesoM")===null) localStorage.setItem("pesoM", '');
-		if (localStorage.getItem("altezzaM")===null) localStorage.setItem("altezzaM", '');
-	    var oldpeso = localStorage.getItem("pesoM");
-		var oldaltezza = localStorage.getItem("altezzaM");
+	    if (localStorage.getItem(nome+"pesoM")===null) localStorage.setItem(nome+"pesoM", '');
+		if (localStorage.getItem(nome+"altezzaM")===null) localStorage.setItem(nome+"altezzaM", '');
+	    var oldpeso = localStorage.getItem(nome+"pesoM");
+		var oldaltezza = localStorage.getItem(nome+"altezzaM");
 		
         var peso = document.forms["myForm"]["peso"].value;
 		peso = peso.replace(",",".");
@@ -89,7 +85,7 @@ function validateForm() {
 		}
 		
 		/* rimpiazza valore se esistente per il peso */
-		if (localStorage.getItem("pesoM")!=="") {
+		if (localStorage.getItem(nome+"pesoM")!=="") {
 		var modificato = "";
 		oldpeso = '['+oldpeso+']';
 		oldpeso = oldpeso.replace(",]","]");
@@ -108,7 +104,7 @@ function validateForm() {
 		/* fine rimpiazza valore se esistente per il peso */
 		
 		/* rimpiazza valore se esistente per altezza */
-		if (localStorage.getItem("altezzaM")!=="") {
+		if (localStorage.getItem(nome+"altezzaM")!=="") {
 		oldaltezza = '['+oldaltezza+']';
 		oldaltezza = oldaltezza.replace(",]","]");
 		oldaltezza = JSON.parse(oldaltezza);
@@ -125,19 +121,19 @@ function validateForm() {
 		}
 		/* fine rimpiazza valore se esistente per altezza */
 		if (modificato !== "si") {
-	    localStorage.setItem("pesoM", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
-	    localStorage.setItem("altezzaM", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
-	    location.href="maschio.html";
+	    localStorage.setItem(nome+"pesoM", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
+	    localStorage.setItem(nome+"altezzaM", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
+	    location.href="maschio.html?nome="+nome;
 		} else {
-			localStorage.setItem("altezzaM", oldaltezza);
-			localStorage.setItem("pesoM", oldpeso);
-			location.href="maschio.html";
+			localStorage.setItem(nome+"altezzaM", oldaltezza);
+			localStorage.setItem(nome+"pesoM", oldpeso);
+			location.href="maschio.html?nome="+nome;
 		}
 	} else if (sesso == "femmina") {
-		if (localStorage.getItem("pesoF")===null) localStorage.setItem("pesoF", '');
-		if (localStorage.getItem("altezzaF")===null) localStorage.setItem("altezzaF", '');
-	    var oldpeso = localStorage.getItem("pesoF");
-        var oldaltezza = localStorage.getItem("altezzaF");
+		if (localStorage.getItem(nome+"pesoF")===null) localStorage.setItem(nome+"pesoF", '');
+		if (localStorage.getItem(nome+"altezzaF")===null) localStorage.setItem(nome+"altezzaF", '');
+	    var oldpeso = localStorage.getItem(nome+"pesoF");
+        var oldaltezza = localStorage.getItem(nome+"altezzaF");
         var peso = document.forms["myForm"]["peso"].value;
 		peso = peso.replace(",",".");
         var eta = document.forms["myForm"]["eta"].value;
@@ -151,7 +147,7 @@ function validateForm() {
 		}
 			
 	    /* rimpiazza valore se esistente per il peso */
-		if (localStorage.getItem("pesoF")!=="") {
+		if (localStorage.getItem(nome+"pesoF")!=="") {
 		var modificato = "";
 		oldpeso = '['+oldpeso+']';
 		oldpeso = oldpeso.replace(",]","]");
@@ -170,7 +166,7 @@ function validateForm() {
 		/* fine rimpiazza valore se esistente per il peso */
 		
 		/* rimpiazza valore se esistente per altezza */
-		if (localStorage.getItem("altezzaF")!=="") {
+		if (localStorage.getItem(nome+"altezzaF")!=="") {
 		oldaltezza = '['+oldaltezza+']';
 		oldaltezza = oldaltezza.replace(",]","]");
 		oldaltezza = JSON.parse(oldaltezza);
@@ -187,13 +183,13 @@ function validateForm() {
 		}
 		/* fine rimpiazza valore se esistente per altezza */
 		if (modificato !== "si") {
-	    localStorage.setItem("pesoF", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
-	    localStorage.setItem("altezzaF", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
-	    location.href="femmina.html";
+	    localStorage.setItem(nome+"pesoF", oldpeso+'{"x":"'+eta+'","y":"'+peso+'"},');
+	    localStorage.setItem(nome+"altezzaF", oldaltezza+'{"x":"'+eta+'","y":"'+altezza+'"},');
+	    location.href="femmina.html?nome="+nome;
 		} else {
-			localStorage.setItem("altezzaF", oldaltezza);
-			localStorage.setItem("pesoF", oldpeso);
-			location.href="femmina.html";
+			localStorage.setItem(nome+"altezzaF", oldaltezza);
+			localStorage.setItem(nome+"pesoF", oldpeso);
+			location.href="femmina.html?nome="+nome;
 		}
 	}
 } 

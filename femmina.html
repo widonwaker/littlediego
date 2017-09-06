@@ -11,17 +11,36 @@
   <script src="jqm/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/Chart.bundle.min.js"></script>
 <script>
+var searchParams = new URLSearchParams(window.location.search);
+var nome = searchParams.get("nome");
+
 var peso ="[";
-peso += localStorage.getItem("pesoF");
+peso += localStorage.getItem(nome+"pesoF");
 peso += ']';
 var peso = peso.replace(",]","]");
 peso = JSON.parse(peso);
 
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
+peso = sortByKey(peso, 'x');
+
 var altezza ="[";
-altezza += localStorage.getItem("altezzaF");
+altezza += localStorage.getItem(nome+"altezzaF");
 altezza += ']';
 var altezza = altezza.replace(",]","]");
 altezza = JSON.parse(altezza);
+
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
+altezza = sortByKey(altezza, 'x');
 
 var kg = 'Kg';
 var cm = 'cm';
@@ -75,7 +94,6 @@ canvas {
 			<ul>
 				<li><a href="#" onclick="location.href='index.html'" id="hometab" data-icon="home">Home</a></li>
                 <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" class="ui-btn-active">Profili</a></li>
-				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" >Nuove Misure</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer --> 

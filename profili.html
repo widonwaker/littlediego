@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
 
-<title>Form</title>
+<title>Profili</title>
   <link rel="stylesheet" href="themes/dieghino.min.css" />
   <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
   <link rel="stylesheet" href="jqm/jquery.mobile.structure-1.4.5.min.css" />
@@ -14,6 +14,26 @@
   <script src="jqm/jquery.mobile-1.4.5.min.js"></script>
   <style>
    .ui-page-header-fixed { padding-top: 10vh !important; }
+.acol .ui-collapsible-heading-collapsed > .ui-collapsible-heading-toggle {
+       background:#3399FF !important;
+	   color: #ffffff !important;
+	   text-shadow: 0 0 0 #f3f3f3 !important;
+}
+.acol .ui-collapsible-heading-toggle {
+       background:#3399FF !important;
+	   color: #ffffff !important;
+	   text-shadow: 0 0 0 #f3f3f3 !important;
+}
+.bcol .ui-collapsible-heading-collapsed > .ui-collapsible-heading-toggle {
+       background:#FF99CC !important;
+	   color: #ffffff !important;
+	   text-shadow: 0 0 0 #f3f3f3 !important;
+}
+.bcol .ui-collapsible-heading-toggle {
+       background:#FF99CC !important;
+	   color: #ffffff !important;
+	   text-shadow: 0 0 0 #f3f3f3 !important;
+}
   </style>
 </head>
 
@@ -47,7 +67,31 @@
 
 </form> 
 
-<div data-role="collapsible">
+<hr>
+
+   <form name="profilo" action="" onsubmit="newprofile(); return false;" method="post">
+   Crea nuovo profilo
+   <div class="ui-field-contain">
+<label for="nome" id="nomeprofilo">Nome:</label> 
+<input type="text" name="nome">
+</div>
+ <div class="ui-field-contain">
+<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+    <legend id="sexleg">Sesso:</legend>
+        <input name="sesso" id="maschio" value="maschio" checked="checked" type="radio">
+        <label for="maschio">M</label>
+        <input name="sesso" id="femmina" value="femmina" type="radio">
+        <label for="femmina">F</label>
+</fieldset>
+</div>
+<div class="ui-field-contain">
+<input type="submit" id="creaprofilo">
+</div>
+
+</form> 
+
+<div id="output"></div>
+<!--<div data-role="collapsible">
   <h1 id="h1male"></h1>
   <p><a href="" onClick="resetM();" id="resetM">Clear all data</a><br><br><a href="" onClick="location.href='maschio.html'" id="linktograph">Access the graphs</a></p>
 </div>
@@ -55,7 +99,7 @@
 <div data-role="collapsible">
   <h1 id="h1female"></h1>
   <p><a href="" onClick="resetF();" id="resetF">Clear all data</a><br><br><a href="" onClick="location.href='femmina.html'" id="linktographF">Access the graphs</a></p>
-</div>
+</div>-->
 
 </div>
 
@@ -64,7 +108,6 @@
 			<ul>
 				<li><a href="#" onclick="location.href='index.html'" id="hometab" data-icon="home">Home</a></li>
                 <li><a href="#" onclick="location.href='profili.html'" id="tabB" data-icon="user" class="ui-btn-active">Profili</a></li>
-				<li><a href="#" onclick="location.href='form.html'" id="contactstab" data-icon="plus" >Nuove Misure</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer --> 
@@ -89,44 +132,86 @@ function validateForm() {
 	}
 } 
 
-function resetMcallback() {
-   	localStorage.removeItem("pesoM");
-	localStorage.removeItem("altezzaM");
-	location.href="profili.html";
-}	
+function isArrayEmpty(array) {
+    return array.filter(function(el) {
+        return !jQuery.isEmptyObject(el);
+    }).length === 0;
+}
 
-function resetFcallback() {
-	localStorage.removeItem("pesoF");
-	localStorage.removeItem("altezzaF");
-	location.href="profili.html";
-}	
+function onConfirm(buttonIndex, toDel, sex) {
+	if (buttonIndex === 1) {
+        localStorage.removeItem(toDel);
+		newDB = newDB.filter(function(record) {
+            return record['nome'] !== toDel;
+        });
+		if (isArrayEmpty(newDB) === true) {
+			localStorage.removeItem("bm_database");
+		} else {
+		newDB = JSON.stringify(newDB);
+		newDB = newDB.replace("[","");
+		newDB = newDB.replace("]",",");
+		localStorage.setItem("bm_database", newDB);
+		}
+		if (sex == 'maschio') {
+			localStorage.removeItem(toDel+"altezzaM");
+			localStorage.removeItem(toDel+"pesoM");
+		} else if (sex == 'femmina') {
+			localStorage.removeItem(toDel+"altezzaF");
+			localStorage.removeItem(toDel+"pesoF");
+		}
+		location.href="profili.html";
+	}
+}
 
-function resetM() {
-navigator.notification.alert(
-    ClearMessageM,  // message
-    resetMcallback,         // callback
-    completed,            // title
-    'Ok'                  // buttonName
+function cancProf(toDel, sex) {
+navigator.notification.confirm(
+    ClearMessage, // message
+     function(buttonIndex){
+            onConfirm(buttonIndex, toDel, sex);
+        },            // callback to invoke with index of button pressed
+    warning,           // title
+    [yes,'No']     // buttonLabels
 );
 }
 
-function resetF() {
-navigator.notification.alert(
-    ClearMessageF,  // message
-    resetFcallback,         // callback
-    completed,            // title
-    'Ok'                  // buttonName
-);
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function newprofile() {
+	var nome = capitalizeFirstLetter(document.forms["profilo"]["nome"].value);
+	var sesso = $('input[name="sesso"]:checked').val();
+	var colore = "";
+	if (sesso == 'maschio') {
+		colore = 'acol';
+	} else if (sesso == 'femmina') {
+		colore = 'bcol';
+	}
+	if (localStorage.getItem("bm_database")===null) localStorage.setItem("bm_database", '');
+	var vecchioDB = localStorage.getItem("bm_database");
+	localStorage.setItem("bm_database", vecchioDB+'{"nome":"'+nome+'","sesso":"'+sesso+'","colore":"'+colore+'"},');
+	localStorage.setItem(nome, "");
+	location.href="profili.html";
+}
 
+if (localStorage.getItem("bm_database")!==null) {
+var newDB ="[";
+newDB += localStorage.getItem("bm_database");
+newDB += ']';
+newDB = newDB.replace(",]","]");
+newDB = JSON.parse(newDB);
 
+for (var i = 0; i < newDB.length; i++) {
+    var info = newDB[i];
+    $('#output').append('<div data-role="collapsible" class="'+info.colore+'"><h1>'+info.nome+'</h1><p><a href="#" onClick=\'location.href="'+info.sesso+'.html?nome='+info.nome+'"\' class="linktograph">Access the graphs</a> <br> <a href="#" onClick=\'location.href="form.html?nome='+info.nome+'&sesso='+info.sesso+'"\' class="contactstab">New measurement</a> <br> <a href="#" onClick="cancProf(\''+info.nome+'\',\''+info.sesso+'\')" class="cancella"></a></p></div>');
+}
+
+}
 </script>
 
 <script>
 var src = 'js/' + window.localStorage.getItem("deflang") + '.js';
 var script = jQuery('<script/>').attr('src', src).appendTo('head');
-
 </script>
 </body>
 </html>
