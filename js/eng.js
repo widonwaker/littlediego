@@ -1,8 +1,8 @@
 if (document.getElementById("tabB") !== null) { document.getElementById("tabB").innerHTML = 'Profiles'; }
-if (document.getElementById("contactstab") !== null){document.getElementById("contactstab").innerHTML = 'Add New'; }
 if (document.getElementById("opzioni") !== null){document.getElementById("opzioni").innerHTML = 'Options'; }
 if (document.getElementById("unitmisura") !== null){document.getElementById("unitmisura").innerHTML = 'Unit of measure'; }
 if (document.getElementById("saveopt") !== null){document.getElementById("saveopt").value = 'Save'; }
+if (document.getElementById("creaprofilo") !== null){document.getElementById("creaprofilo").value = 'Save'; }
 if (document.getElementById("sexleg") !== null){document.getElementById("sexleg").innerHTML = 'Sex:'; }
 if (document.getElementById("etaleg") !== null){document.getElementById("etaleg").innerHTML = 'Age (months):'; }
 if (document.getElementById("pesoleg") !== null){document.getElementById("pesoleg").innerHTML = 'Weight:'; }
@@ -11,16 +11,37 @@ if (document.getElementById("calcoform") !== null){document.getElementById("calc
 
 if (document.getElementById("resetM") !== null){document.getElementById("resetM").innerHTML = 'Clear all data'; }
 if (document.getElementById("resetF") !== null){document.getElementById("resetF").innerHTML = 'Clear all data'; }
-if (document.getElementById("linktograph") !== null){document.getElementById("linktograph").innerHTML = 'Access the graphs'; }
-if (document.getElementById("linktograph") !== null){document.getElementById("linktographF").innerHTML = 'Access the graphs'; }
+if (document.getElementsByClassName("linktograph") !== null){
+    var divs = document.getElementsByClassName( 'linktograph' );
+    [].slice.call( divs ).forEach(function ( div ) {
+        div.innerHTML = 'Access the graphs';
+    });	
+}
 if (document.getElementById("h1male") !== null){document.getElementById("h1male").innerHTML = 'Male'; }
 if (document.getElementById("h1female") !== null){document.getElementById("h1female").innerHTML = 'Female'; }
 
 if (document.getElementById("istruzioni") !== null){ document.getElementById("istruzioni").innerHTML = '<b>PERCENTILE THRESHOLDS</b> <br><b>15 - 85 percentile:</b> <br>State of normality<br><b>3 - 15 / 85 - 97 percentile:</b> <br>Mild pathology, to be monitored<br><b>Lower than 3 / Higher than 97 percentile:</b> <br>Blown pathology (visit recommended).<br>In relation to stature, a specialist examination is recommended (bone age evaluation, growth rate, hematochemical examinations, etc.)'; }
 
-var ClearMessageM = 'All male datas have been cleared.';
-var ClearMessageF = 'All female datas have been cleared.';
+if (document.getElementsByClassName("contactstab") !== null){ 
+    var divs = document.getElementsByClassName( 'contactstab' );
+    [].slice.call( divs ).forEach(function ( div ) {
+        div.innerHTML = 'New Measurement';
+    });
+}
+
+if (document.getElementsByClassName("cancella") !== null){ 
+    var divs = document.getElementsByClassName( 'cancella' );
+    [].slice.call( divs ).forEach(function ( div ) {
+        div.innerHTML = 'Delete Profile';
+    });
+}
+
+document.getElementById("intestazione").innerHTML = '<p align="center">Insert new values for '+nome+'</p>';
+
+var ClearMessage = 'You are going to delete this profile. Are you sure?';
 var completed = 'Completed';
+var yes = 'Yes';
+var warning = 'Warning!';
 var miobimbo = 'My son';
 var miabimba = 'My daughter';
 var mesi = 'months';
