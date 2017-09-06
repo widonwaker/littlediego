@@ -36,6 +36,8 @@ if (document.getElementsByClassName("cancella") !== null){
     });
 }
 
+if (document.getElementById("creanuovo") !== null){ document.getElementById("creanuovo").innerHTML = 'Crea nuovo profilo';}
+
 if (document.getElementById("intestazione") !== null){ document.getElementById("intestazione").innerHTML = '<p align="center">Inserisci nuovi valori per '+nome+'</p>';}
 
 var ClearMessage = 'Tutti i dati relativi al profilo selezionato saranno cancellati. Confermi?';

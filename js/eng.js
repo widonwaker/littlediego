@@ -36,7 +36,9 @@ if (document.getElementsByClassName("cancella") !== null){
     });
 }
 
-document.getElementById("intestazione").innerHTML = '<p align="center">Insert new values for '+nome+'</p>';
+if (document.getElementById("creanuovo") !== null){ document.getElementById("creanuovo").innerHTML = 'Create new profile';}
+
+if (document.getElementById("intestazione") !== null){ document.getElementById("intestazione").innerHTML = '<p align="center">Insert new values for '+nome+'</p>'; }
 
 var ClearMessage = 'You are going to delete this profile. Are you sure?';
 var completed = 'Completed';
