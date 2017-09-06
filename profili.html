@@ -70,7 +70,7 @@
 <hr>
 
    <form name="profilo" action="" onsubmit="newprofile(); return false;" method="post">
-   Crea nuovo profilo
+   <div id="creanuovo">Crea nuovo profilo</div>
    <div class="ui-field-contain">
 <label for="nome" id="nomeprofilo">Nome:</label> 
 <input type="text" name="nome">
@@ -95,10 +95,6 @@
   <h1 id="h1male"></h1>
   <p><a href="" onClick="resetM();" id="resetM">Clear all data</a><br><br><a href="" onClick="location.href='maschio.html'" id="linktograph">Access the graphs</a></p>
 </div>
-
-<div data-role="collapsible">
-  <h1 id="h1female"></h1>
-  <p><a href="" onClick="resetF();" id="resetF">Clear all data</a><br><br><a href="" onClick="location.href='femmina.html'" id="linktographF">Access the graphs</a></p>
 </div>-->
 
 </div>
@@ -203,7 +199,7 @@ newDB = JSON.parse(newDB);
 
 for (var i = 0; i < newDB.length; i++) {
     var info = newDB[i];
-    $('#output').append('<div data-role="collapsible" class="'+info.colore+'"><h1>'+info.nome+'</h1><p><a href="#" onClick=\'location.href="'+info.sesso+'.html?nome='+info.nome+'"\' class="linktograph">Access the graphs</a> <br> <a href="#" onClick=\'location.href="form.html?nome='+info.nome+'&sesso='+info.sesso+'"\' class="contactstab">New measurement</a> <br> <a href="#" onClick="cancProf(\''+info.nome+'\',\''+info.sesso+'\')" class="cancella"></a></p></div>');
+    $('#output').append('<div data-role="collapsible" class="'+info.colore+'"><h1>'+info.nome+'</h1><ul data-role="listview"><li><a href="#" onClick=\'location.href="'+info.sesso+'.html?nome='+info.nome+'"\' class="linktograph">Access the graphs</a> </li> <li><a href="#" onClick=\'location.href="form.html?nome='+info.nome+'&sesso='+info.sesso+'"\' class="contactstab">New measurement</a> </li> <li><a href="#" onClick="cancProf(\''+info.nome+'\',\''+info.sesso+'\')" class="cancella"></a></li></ul></div>');
 }
 
 }
