@@ -20,13 +20,9 @@ peso += ']';
 var peso = peso.replace(",]","]");
 peso = JSON.parse(peso);
 
-function sortByKey(array, key) {
-    return array.sort(function(a, b) {
-        var x = a[key]; var y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });
-}
-peso = sortByKey(peso, 'x');
+peso.sort(function(a, b) {
+    return parseFloat(a.x) - parseFloat(b.x);
+});
 
 var altezza ="[";
 altezza += localStorage.getItem(nome+"altezzaM");
@@ -34,13 +30,9 @@ altezza += ']';
 var altezza = altezza.replace(",]","]");
 altezza = JSON.parse(altezza);
 
-function sortByKey(array, key) {
-    return array.sort(function(a, b) {
-        var x = a[key]; var y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });
-}
-altezza = sortByKey(altezza, 'x');
+altezza.sort(function(a, b) {
+    return parseFloat(a.x) - parseFloat(b.x);
+});
 
 var kg = 'Kg';
 var cm = 'cm';

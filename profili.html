@@ -175,7 +175,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function newprofile() {
-	var nome = capitalizeFirstLetter(document.forms["profilo"]["nome"].value);
+	var nome = capitalizeFirstLetter(document.forms["profilo"]["nome"].value.trim());
 	var sesso = $('input[name="sesso"]:checked').val();
 	var colore = "";
 	if (sesso == 'maschio') {
